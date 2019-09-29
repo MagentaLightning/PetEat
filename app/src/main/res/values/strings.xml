@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">PetEat</string>
+    <!-- LOGIN ACTIVITY -->
+    <string name="edit_text_email">E-mail</string>
+    <string name="edit_text_password">Contraseña</string>
+    <string name="checkbox_remember_me">Recuérdame</string>
+    <string name="button_login">Ingresar</string>
+    <string name="button_recover_password">Contraseña olvidada</string>
+    <string name="button_signup">Registrarse</string>
+    <!--  -->
+
+    <!-- SIGNUP ACTIVITY -->
+    <string name="edit_text_repeat_password">Repetir contraseña</string>
+    <string name="button_signin">Iniciar sesión</string>
+    <!--  -->
+
+    <!-- FORGOTTEN ACTIVITY -->
+    <string name="text_view_recover_info">Ingresa tu correo electrónico para enviarte un link de cambio de contraseña y recuperar tu cuenta.</string>
+    <string name="button_recover">Recuperar</string>
+    <!--  -->
+
+    <!-- HOME ACTIVITY -->
+    <string name="menu_home">Home</string>
+    <string name="menu_device_configurations">Configurar alimentador</string>
+    <string name="menu_preferences">Preferencias</string>
+    <string name="menu_account_configurations">Configuración de cuenta</string>
+    <string name="menu_communicate">Comunicar</string>
+    <string name="menu_about">Acerca de</string>
+    <string name="menu_share">Compartir</string>
+    <string name="text_view_no_pet">Presione el ícono "+" para agregar a su mascota</string>
+    <!--  -->
+
+    <!-- NAVIGATION DRAW  -->
+    <string name="navigation_drawer_item_device_configurations">Configurar alimentador</string>
+    <string name="navigation_drawer_item_preferences">Preferencias</string>
+    <string name="navigation_drawer_item_account_configurations">Configuración de cuenta</string>
+    <string name="navigation_drawer_item_about">Acerca de</string>
+    <string name="navigation_drawer_item_share">Share</string>
+    <string name="button_logout">Cerrar sesión</string>
+    <!--  -->
+
+    <!-- DEVICE CONFIGURATION ACTIVITY -->
+    <string name="helper_id_device">ID del dispositivo</string>
+    <string name="text_view_wifi_name">Nombre de la red:</string>
+    <string name="button_connect">Conectar</string>
+    <!--  -->
+
+    <!-- PREFERENCES ACTIVITY -->
+    <string name="text_view_notifications">Recibir notificaciones</string>
+    <string name="text_view_messages">Mensajes cada:</string>
+    <string name="checkbox_sound">Sonido</string>
+    <string name="checkbox_vibration">Vibración</string>
+    <string name="button_accept">Aceptar</string>
+    <string name="button_change_email">Cambiar e-mail</string>
+    <!--  -->
+
+    <!-- ACCOUNT CONFIGURATIONS ACTIVITY -->
+    <string name="button_change_password">Cambiar contraseña</string>
+    <string name="edit_text_new_email">Nuevo E-mail</string>
+    <!--  -->
+
+    <!-- CHANGE DATA ACTIVITIES -->
+    <string name="text_view_change_notification">Está a punto de realizar cambios en su cuenta, por lo que es necesario una reautentificación</string>
+    <string name="text_view_new_data">Aquí ingrese los nuevos datos para su cuenta</string>
+    <string name="edit_text_new_password">Nueva contraseña</string>
+    <string name="edit_text_repeat_new_password">Repetir nueva contraseña</string>
+    <!--  -->
+
+    <!-- ABOUT ACTIVITY -->
+    <string name="text_view_about">PetEat™ es una herramienta desarrollada y elaborada por el equipo creativo Working Dummies, equipo conformado por pequeños grandes emprendedores con algo común: el amor a las mascotas.
+\n\nPetEat™ se encargará de apoyarte en la alimentación de tu mascota, a la vez de proporcionarte información de su alimentación sin necesidad de estar cerca del alimentador.</string>
+    <string name="text_view_credits"> Icons made by Freepik \nBrand designs and Edits made by Magenta Lightning</string>
+    <string name="text_view_kind">Especie</string>
+    <!--  -->
+
+    <!-- ADD PET ACTIVITY -->
+    <string name="text_view_name">Nombre</string>
+    <string name="edit_text_name">Nombre</string>
+    <string name="text_view_sex">Sexo</string>
+    <string name="radio_button_male">Macho</string>
+    <string name="radio_button_female">Hembra</string>
+    <string name="text_view_birth_date">Fecha de nacimiento</string>
+    <string name="text_view_weight">Peso</string>
+    <string name="text_view_kg">(kg)</string>
+    <string name="text_view_height">Altura</string>
+    <string name="text_view_cm">(cm)</string>
+    <string name="text_view_size">Tamaño</string>
+    <string name="list_view_default">Selecciona</string>
+    <string name="text_view_food">ALIMENTO</string>
+    <string name="text_view_discharge">Descargas</string>
+    <string name="text_view_per_day">(al día)</string>
+    <string name="text_view_quantity">Cantidad</string>
+    <string name="text_view_per_discharge">(por descarga)</string>
+    <string name="text_view_identifier">IDENTIFICADOR</string>
+    <string name="identifier_default">ID del Dispositivo</string>
+    <string name="button_add">Agregar</string>
+    <string name="text_view_consumed_food">Consumido</string>
+    <string name="text_view_consumed_water">Consumida</string>
+    <!--  -->
+
+    <!-- HOME PET ACTIVITY -->
+    <string name="text_view_food_gr">587 gr</string>
+    <string name="text_view_remain_food">1413 gr</string>
+    <string name="text_view_water_ml">347 ml</string>
+    <string name="text_view_remain_water">653 ml</string>
+    <string name="text_view_remain">Restante</string>
+    <string name="button_update">Actualizar</string>
+    <string name="button_delete">Eliminar</string>
+    <!--  -->
+
+    <!-- EDIT PET ACTIVITY -->
+    <string name="text_view_warning">Advertencia</string>
+    <string name="text_view_excellent">Todo normal</string>
+    <!--  -->
+
+    <!-- ALERTS -->
+    <string name="text_view_warning_low_feed">Consumo de alimento bajo</string>
+    <string name="text_view_warning_low_water">Consumo de agua baja</string>
+    <string name="text_view_warning_high_water">Consumo de agua alta</string>
+    <string name="text_view_normal">Ha sido un buen chico. :)</string>
+    <string name="snackbar_recover_email">Correo de recuperación enviado</string>
+    <string name="snackbar_successful_signup">Registro completado</string>
+    <!--  -->
+
+    <!-- EMERGIN ELEMENTS -->
+    <string name="dialog_sign_out">¿Cerrar sesión?</string>
+    <string name="button_cancel">Cancelar</string>
+    <string name="snackbar_successful_connection">Conexión éxitosa</string>
+    <string name="snackbar_email_updated">E-mail actualizado</string>
+    <string name="snackbar_pet_added">Mascota agregada</string>
+    <string name="snackbar_preferences_updated">Preferencias actualizadas</string>
+    <string name="dialog_confirm_changes">¿Confirmar cambios?</string>
+    <string name="dialog_confirm_delete">¿Confirmar eliminación?</string>
+    <string name="dialog_confirm_add">¿Confirmar agregado?</string>
+    <string name="snackbar_profile_updated">Perfil actualizado</string>
+    <string name="snackbar_profile_deleted">Perfil eliminado</string>
+    <string name="error_email_required">E-mail requerido</string>
+    <string name="error_password_required">Contraseña requerida</string>
+
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+
+    <!-- ERROR MESSAGES-->
+    <string name="error_name_required">Nombre requerido</string>
+    <string name="error_birth_date_required">Fecha requerida</string>
+    <string name="error_weight_no_valid">No válido</string>
+    <string name="error_height_no_valid">No válido</string>
+    <string name="error_discharge_no_valid">No válido</string>
+    <string name="error_identifier_required">Identificador requerido</string>
+    <string name="error_email_format">Formato no válido</string>
+    <string name="error_repeat_password">Contraseñas no coinciden</string>
+    <string name="text_view_name_pet">NOMBRE</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_logout">Cerrar sesión</string>
+    <string-array name="list_view_notifications_frequency">
+        <item value="5">5 Horas</item>
+        <item value="12">12 Horas</item>
+        <item value="24">24 Horas</item>
+    </string-array>
+    <string-array name="list_view_pet_size">
+        <item value="1">Miniatura</item>
+        <item value="2">Pequeño</item>
+        <item value="3">Mediano</item>
+        <item value="4">Grande</item>
+    </string-array>
+</resources>

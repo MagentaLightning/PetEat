@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    tools:context=".AddPetActivity"
+    android:background="@color/colorBackground">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:layoutAnimation="@null"
+        android:overScrollMode="never"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:id="@+id/llForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="100dp"
+            android:focusableInTouchMode="true"
+            tools:ignore="UselessParent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_kind"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/text_view_kind"
+                android:textSize="18sp"/>
+
+            <RadioGroup
+                android:id="@+id/radio_group_kind"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                tools:ignore="UselessParent">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radio_button_cat"
+                    android:button="@null"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:background="@drawable/ic_cat"
+                    android:checked="true"/>
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radio_button_dog"
+                    android:button="@null"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:background="@drawable/ic_dog_unchecked"/>
+
+            </RadioGroup>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/edit_text_name"
+                app:endIconMode="clear_text"
+                app:boxBackgroundColor="@color/text_input"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
+                app:counterMaxLength="15"
+                app:counterEnabled="true"
+                app:startIconDrawable="@drawable/ic_heart">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_name"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_sex"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/text_view_sex"
+                android:textSize="18sp"/>
+
+            <RadioGroup
+                android:id="@+id/radio_group_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingEnd="0dp"
+                android:paddingStart="10dp">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radio_button_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_button_male"
+                    android:textSize="16sp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="25dp"
+                    android:checked="true">
+                </com.google.android.material.radiobutton.MaterialRadioButton>
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radio_button_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_button_female"
+                    android:textSize="16sp">
+                </com.google.android.material.radiobutton.MaterialRadioButton>
+
+            </RadioGroup>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_birth_date"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/text_view_birth_date"
+                android:textSize="18sp"
+                android:paddingTop="15dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:endIconMode="clear_text"
+                app:boxBackgroundColor="@color/text_input"
+                android:paddingBottom="15dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_date"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="50"
+                android:baselineAligned="false"
+                android:paddingTop="15dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    tools:ignore="NestedWeights">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_view_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_view_weight"
+                        android:textSize="18sp"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_view_kg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_view_kg"
+                        android:textSize="18sp"
+                        android:paddingStart="6dp"
+                        android:paddingEnd="0dp"
+                        android:textColor="@color/text_view_oppacity"
+                        android:layout_toEndOf="@id/text_view_weight"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:gravity="center">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_view_height"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_view_height"
+                        android:textSize="18sp"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_view_cm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_view_kg"
+                        android:textSize="18sp"
+                        android:paddingStart="6dp"
+                        android:paddingEnd="0dp"
+                        android:textColor="@color/text_view_oppacity"
+                        android:layout_toEndOf="@id/text_view_height"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:baselineAligned="false"
+                android:paddingTop="5dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:gravity="center">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/button_minus_weight"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/ic_minus"
+                        android:layout_marginTop="5dp">
+                    </androidx.appcompat.widget.AppCompatImageButton>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/text_input_weight"
+                        android:layout_width="70dp"
+                        android:layout_height="50dp"
+                        app:boxBackgroundColor="@color/text_input"
+                        android:paddingBottom="15dp"
+                        android:layout_toEndOf="@id/button_minus_weight">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_weight"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                            android:textSize="16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/button_plus_weight"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/ic_plus"
+                        android:layout_marginTop="5dp"
+                        android:layout_toEndOf="@id/text_input_weight">
+                    </androidx.appcompat.widget.AppCompatImageButton>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:gravity="center">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/button_minus_height"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/ic_minus"
+                        android:layout_marginTop="5dp">
+                    </androidx.appcompat.widget.AppCompatImageButton>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/text_input_height"
+                        android:layout_width="70dp"
+                        android:layout_height="50dp"
+                        app:boxBackgroundColor="@color/text_input"
+                        android:paddingBottom="15dp"
+                        android:layout_toEndOf="@id/button_minus_height">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_height"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                            android:textSize="16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/button_plus_height"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/ic_plus"
+                        android:layout_marginTop="5dp"
+                        android:layout_toEndOf="@id/text_input_height">
+                    </androidx.appcompat.widget.AppCompatImageButton>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_size"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/text_view_size"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:paddingTop="15dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_size"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:boxBackgroundColor="#D9E7EC">
+                <AutoCompleteTextView
+                    android:id="@+id/filled_exposed_dropdown"
+                    android:hint="@string/list_view_default"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:textColor="#aeb9bc"
+                    tools:ignore="Deprecated"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="50dp"
+                android:paddingBottom="30dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_food"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/text_view_food"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:paddingTop="15dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    tools:ignore="NestedWeights">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_view_discharge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_view_discharge"
+                        android:textSize="18sp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_view_per_day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_view_per_day"
+                        android:textSize="18sp"
+                        android:paddingStart="6dp"
+                        android:paddingEnd="0dp"
+                        android:textColor="@color/text_view_oppacity"
+                        android:layout_below="@id/text_view_discharge"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="40"
+                    android:gravity="center">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_view_quantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_view_quantity"
+                        android:textSize="18sp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_view_per_discharge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_view_per_discharge"
+                        android:textSize="18sp"
+                        android:textColor="@color/text_view_oppacity"
+                        android:layout_below="@id/text_view_quantity"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:baselineAligned="false"
+                android:paddingTop="5dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:gravity="center">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/button_minus_discharge"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/ic_minus"
+                        android:layout_marginTop="5dp">
+                    </androidx.appcompat.widget.AppCompatImageButton>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/text_input_discharge"
+                        android:layout_width="70dp"
+                        android:layout_height="50dp"
+                        app:endIconMode="clear_text"
+                        app:boxBackgroundColor="@color/text_input"
+                        android:paddingBottom="15dp"
+                        android:layout_toEndOf="@id/button_minus_discharge">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_discharge"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                            android:textSize="16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="date"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/button_plus_discharge"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/ic_plus"
+                        android:layout_marginTop="5dp"
+                        android:layout_toEndOf="@id/text_input_discharge">
+                    </androidx.appcompat.widget.AppCompatImageButton>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:gravity="center">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/button_minus_quantity"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/ic_minus"
+                        android:layout_marginTop="5dp">
+                    </androidx.appcompat.widget.AppCompatImageButton>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/text_input_quantity"
+                        android:layout_width="70dp"
+                        android:layout_height="50dp"
+                        app:endIconMode="clear_text"
+                        app:boxBackgroundColor="@color/text_input"
+                        android:paddingBottom="15dp"
+                        android:layout_toEndOf="@id/button_minus_quantity">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_quantity"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                            android:textSize="16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="date"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/button_plus_quantity"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/ic_plus"
+                        android:layout_marginTop="5dp"
+                        android:layout_toEndOf="@id/text_input_quantity">
+                    </androidx.appcompat.widget.AppCompatImageButton>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="50dp"
+                android:paddingBottom="30dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_identifier"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/text_view_identifier"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:paddingTop="15dp"
+                android:paddingBottom="10dp"/>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_qr_code"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_identifier"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="@string/identifier_default"
+                android:paddingTop="15dp"
+                android:alpha="0.5" >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_identifier"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:editable="false"
+                    android:enabled="false"
+                    android:background="@color/text_view_oppacity"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    tools:ignore="Deprecated"
+                    android:alpha="0.5" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_add"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:letterSpacing="0"
+                android:textSize="14sp"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

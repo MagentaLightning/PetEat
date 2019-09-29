@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_padding_top"
+    android:paddingBottom="@dimen/activity_padding_bottom"
+    android:paddingStart="@dimen/activity_padding_start"
+    android:paddingEnd="@dimen/activity_padding_end"
+    tools:context=".MainActivity"
+    android:background="@color/colorBackground">
+
+    <RelativeLayout
+        android:id="@+id/llForm"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:focusableInTouchMode="true"
+        android:layout_centerVertical="true"
+        android:layout_above="@id/button_connect">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            tools:ignore="UselessParent">
+
+            <ImageButton
+                android:id="@+id/button_scan"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_qr_code"
+                tools:ignore="ContentDescription"
+                android:layout_marginBottom="@dimen/item_margin_bottom"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_identifier"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="@string/identifier_default"
+                android:layout_marginBottom="15dp"
+                android:alpha="0.5">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_identifier"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:editable="false"
+                    android:enabled="false"
+                    android:background="@color/text_view_oppacity"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    tools:ignore="Deprecated"
+                    android:alpha="0.5"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="25dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_view_wifi_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="45"
+                    android:text="@string/text_view_wifi_name"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="16sp">
+                </com.google.android.material.textview.MaterialTextView>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text_input_wifi"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="55"
+                    android:layout_gravity="center"
+                    app:boxBackgroundColor="#D9E7EC">
+                    <AutoCompleteTextView
+                        android:id="@+id/filled_exposed_dropdown"
+                        android:hint="@string/list_view_default"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:textColor="#aeb9bc"
+                        tools:ignore="Deprecated"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/edit_text_password"
+                app:endIconMode="password_toggle"
+                app:boxBackgroundColor="@color/text_input"
+                android:paddingBottom="15dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_password"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_connect"
+        android:layout_gravity="center"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_connect"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:letterSpacing="0"/>
+</RelativeLayout>

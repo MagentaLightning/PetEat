@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorBackground">#c0d8e0</color>
+    <color name="colorPrimary">#889696</color>
+    <color name="colorPrimaryDark">#f3ffff</color>
+    <color name="colorAccent">#8fa7ae</color>
+    <color name="primaryTextColor">#748287</color>
+    <color name="white">#FFFFFF</color>
+    <color name="text_input">#D9E7EC</color>
+    <color name="text_view">#50595D</color>
+    <color name="text_view_oppacity">#20000000</color>
+    <color name="background_navigation_draw">#EEF0EB</color>
+    <color name="icons">#28587B</color>
+    <color name="toggle_icons">#EEF0EB</color>
+    <color name="divider">#D5D5D5</color>
+    <color name="excellent">#00A130</color>
+    <color name="buttons">#889696</color>
+    <color name="toolbar">#80969c</color>
+</resources>

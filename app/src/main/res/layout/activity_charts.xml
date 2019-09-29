@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="@dimen/activity_padding_top"
+    android:paddingBottom="@dimen/activity_padding_bottom"
+    android:paddingStart="@dimen/activity_padding_start"
+    android:paddingEnd="@dimen/activity_padding_end"
+    tools:context=".ChartsActivity"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/top_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/llImagePet"
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:id="@+id/image_pet"
+                android:layout_centerInParent="true"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_catcolor"
+                android:alpha="0.8"/>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/text_view_pet_name"
+            android:layout_toEndOf="@id/llImagePet"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_view_name"
+            android:alpha="0.8"
+            android:textSize="18sp"/>
+
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true">
+
+            <ImageButton
+                android:id="@+id/button_location"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ic_veterinary"
+                android:layout_centerInParent="true"
+                android:alpha="0.9"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/separator"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@id/top_info"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    <ScrollView
+        android:layout_below="@id/separator"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layoutAnimation="@null"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        tools:ignore="RtlHardcoded,UselessParent">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/secondLayout">
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/line_chart"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="24dp" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/line_chart2"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_below="@+id/line_chart"
+                android:layout_marginTop="48dp"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_padding_top"
+    android:paddingBottom="@dimen/activity_padding_bottom"
+    android:paddingStart="@dimen/activity_padding_start"
+    android:paddingEnd="@dimen/activity_padding_end"
+    tools:context=".MainActivity"
+    android:background="@color/colorBackground">
+
+    <RelativeLayout
+        android:id="@+id/llForm"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:focusableInTouchMode="true"
+        android:layout_centerVertical="true"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:id="@+id/image_personal"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/ic_menu_account_configurations"
+                android:backgroundTint="@color/icons"
+                android:layout_gravity="center"
+                tools:ignore="ContentDescription"
+                android:layout_marginBottom="@dimen/item_margin_bottom" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="@string/edit_text_email"
+                android:layout_marginTop="10dp"
+                android:alpha="0.7" >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:enabled="false"
+                    android:background="@color/text_view_oppacity"
+                    android:textSize="16sp"
+                    tools:ignore="Deprecated"
+                    android:alpha="0.7" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_change_email"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="@string/button_change_email"
+                android:inputType="textCapSentences"
+                android:textSize="@dimen/button_text_size"
+                tools:ignore="RelativeOverlap"
+                android:letterSpacing="0"
+                android:layout_gravity="end"
+                android:layout_marginBottom="@dimen/item_margin_bottom"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="@string/edit_text_password"
+                android:layout_marginTop="10dp"
+                android:alpha="0.7" >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:enabled="false"
+                    android:background="@color/text_view_oppacity"
+                    android:textSize="16sp"
+                    tools:ignore="Deprecated"
+                    android:inputType="textPassword"
+                    android:alpha="0.7" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_change_password"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="@string/button_change_password"
+                android:inputType="textCapSentences"
+                android:textSize="14sp"
+                tools:ignore="RelativeOverlap"
+                android:letterSpacing="0"
+                android:layout_gravity="end"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>
