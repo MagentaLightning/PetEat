@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextInputLayout text_input_email, text_input_password;
     EditText edit_text_email, edit_text_password;
-    CheckBox checkbox_remember_me;
+    TextView text_view_connect;
     Button button_sign_up, button_login, button_recover_password;
 
     @Override
@@ -37,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
         button_login.setTypeface(Quicksand_Bold);
         button_recover_password.setTypeface(Quicksand_Bold);
 
-        // CHECKBOX
-        checkbox_remember_me = findViewById(R.id.checkbox_remember_me);
+        // TEXTVIEW
+        text_view_connect = findViewById(R.id.text_view_connect);
         Typeface Raleway_Regular = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Regular.ttf");
-        checkbox_remember_me.setTypeface(Raleway_Regular);
+        text_view_connect.setTypeface(Raleway_Regular);
 
         // EDIT TEXT & TEXT INPUT
         edit_text_email = findViewById(R.id.edit_text_email);

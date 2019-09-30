@@ -7,6 +7,7 @@
     <string name="button_login">Ingresar</string>
     <string name="button_recover_password">Contraseña olvidada</string>
     <string name="button_signup">Registrarse</string>
+    <string name="text_view_connect">O ingresa con:</string>
     <!--  -->
 
     <!-- SIGNUP ACTIVITY -->

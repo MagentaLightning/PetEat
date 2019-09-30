@@ -11,11 +11,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".ChartsActivity"></activity>
-        <activity android:name=".ChangePasswordActivity" />
-        <activity android:name=".ChangeEmailActivity" />
-        <activity android:name=".AddPetActivity" />
-        <activity android:name=".EditPetActivity" />
+        <activity
+            android:name=".ChartsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChangePasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChangeEmailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AddPetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EditPetActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".AboutActivity"
             android:screenOrientation="portrait" />

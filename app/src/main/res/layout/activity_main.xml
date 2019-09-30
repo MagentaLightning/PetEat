@@ -23,10 +23,12 @@
         android:layout_above="@id/button_recover_password">
 
         <LinearLayout
+            android:id="@+id/llBody"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
 
             <ImageView
                 android:id="@+id/image_view_imagetype"
@@ -72,15 +74,6 @@
                     android:inputType="textPassword"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/checkbox_remember_me"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/checkbox_remember_me"
-                android:textColor="@color/primaryTextColor"
-                android:checked="true"
-                android:textSize="@dimen/checkbox_text_size"/>
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_login"
                 android:layout_width="wrap_content"
@@ -88,8 +81,33 @@
                 android:text="@string/button_login"
                 android:layout_gravity="center"
                 android:letterSpacing="0"
-                android:textSize="@dimen/button_text_size"/>
+                android:textSize="@dimen/button_text_size"
+                android:layout_marginTop="@dimen/item_margin_bottom"/>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_view_connect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_view_connect"
+                    android:textColor="@color/primaryTextColor"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="5dp"
+                    android:visibility="gone"/>
+
+                <ImageButton
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/ic_facebook"
+                    android:layout_gravity="center"
+                    tools:ignore="ContentDescription"
+                    android:alpha="0.9"/>
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 
