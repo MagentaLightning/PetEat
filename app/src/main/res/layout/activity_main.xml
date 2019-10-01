@@ -32,8 +32,8 @@
 
             <ImageView
                 android:id="@+id/image_view_imagetype"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
                 android:src="@drawable/ic_imagetype"
                 android:layout_marginBottom="@dimen/item_margin_bottom"
                 android:layout_gravity="center"
@@ -87,26 +87,27 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:orientation="horizontal">
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginTop="25dp">
 
                 <TextView
                     android:id="@+id/text_view_connect"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="@string/text_view_connect"
                     android:textColor="@color/primaryTextColor"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="5dp"
-                    android:visibility="gone"/>
+                    android:textSize="14sp"
+                    android:layout_marginEnd="@dimen/item_margin_bottom"/>
 
                 <ImageButton
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:background="@drawable/ic_facebook"
                     android:layout_gravity="center"
                     tools:ignore="ContentDescription"
-                    android:alpha="0.9"/>
+                    android:alpha="0.5"/>
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
