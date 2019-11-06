@@ -109,6 +109,44 @@ public class EditPetActivity extends AppCompatActivity {
         button_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                text_input_name.setError(null);
+                edit_text_discharge.setError(null);
+                edit_text_quantity.setError(null);
+                button_update.setEnabled(false);
+
+                if (edit_text_name.getText().toString().isEmpty()) {
+                    text_input_name.setError(getText(R.string.error_name_required));
+                    button_update.setEnabled(true);
+                    return;
+                }
+
+                if (edit_text_discharge.getText().toString().isEmpty()) {
+                    edit_text_discharge.setError(getText(R.string.error_discharge_no_valid));
+                    button_update.setEnabled(true);
+                    return;
+                }
+
+                if (Integer.parseInt(edit_text_discharge.getText().toString()) == 0) {
+                    edit_text_discharge.setError(getString(R.string.error_discharge_no_valid));
+                    button_update.setEnabled(true);
+                    return;
+                }
+
+                if (edit_text_quantity.getText().toString().isEmpty()) {
+                    edit_text_quantity.setError(getText(R.string.error_quantity_no_valid));
+                    button_update.setEnabled(true);
+                    return;
+                }
+
+                if (Integer.parseInt(edit_text_quantity.getText().toString()) == 0 ) {
+                    edit_text_quantity.setError(getString(R.string.error_quantity_no_valid));
+                    button_update.setEnabled(true);
+                    return;
+                }
+
+                progressBar.setVisibility(View.VISIBLE);
+                Verification();
                 new MaterialAlertDialogBuilder(EditPetActivity.this)
                         .setMessage(R.string.dialog_confirm_changes)
                         .setNegativeButton("Cancelar", null)
@@ -121,5 +159,11 @@ public class EditPetActivity extends AppCompatActivity {
                         .show();
             }
         });
+    }
+
+    public void Verification() {
+        edit_text_name.setEnabled(false);
+        edit_text_discharge.setEnabled(false);
+        edit_text_quantity.setEnabled(false);
     }
 }

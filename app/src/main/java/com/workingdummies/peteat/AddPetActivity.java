@@ -94,17 +94,61 @@ public class AddPetActivity extends AppCompatActivity {
         button_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new MaterialAlertDialogBuilder(AddPetActivity.this)
-                        .setMessage(R.string.dialog_confirm_add)
-                        .setNegativeButton("Cancelar", null)
-                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(AddPetActivity.this, R.string.snackbar_pet_added, Toast.LENGTH_LONG).show();
-                                finish();
-                            }
-                        })
-                        .show();
+
+                text_input_name.setError(null);
+                edit_text_discharge.setError(null);
+                edit_text_quantity.setError(null);
+                button_add.setEnabled(false);
+
+
+                if (edit_text_name.getText().toString().isEmpty()) {
+                    text_input_name.setError(getText(R.string.error_name_required));
+                    button_add.setEnabled(true);
+                    return;
+                }
+
+                if (edit_text_discharge.getText().toString().isEmpty()) {
+                    edit_text_discharge.setError(getText(R.string.error_discharge_no_valid));
+                    button_add.setEnabled(true);
+                    return;
+                }
+
+                if (Integer.parseInt(edit_text_discharge.getText().toString()) == 0) {
+                    edit_text_discharge.setError(getString(R.string.error_discharge_no_valid));
+                    button_add.setEnabled(true);
+                    return;
+                }
+
+                if (edit_text_quantity.getText().toString().isEmpty()) {
+                    edit_text_quantity.setError(getText(R.string.error_quantity_no_valid));
+                    button_add.setEnabled(true);
+                    return;
+                }
+
+                if (Integer.parseInt(edit_text_quantity.getText().toString()) == 0 ) {
+                    edit_text_quantity.setError(getString(R.string.error_quantity_no_valid));
+                    button_add.setEnabled(true);
+                    return;
+                }
+                    progressBar.setVisibility(View.VISIBLE);
+                    Verification();
+                    new MaterialAlertDialogBuilder(AddPetActivity.this)
+                            .setMessage(R.string.dialog_confirm_add)
+                            .setNegativeButton("Cancelar", null)
+                            .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Toast.makeText(AddPetActivity.this, R.string.snackbar_pet_added, Toast.LENGTH_LONG).show();
+                                    finish();
+                                }
+                            })
+                            .show();
             }
         });
+    }
+
+    public void Verification() {
+        edit_text_name.setEnabled(false);
+        edit_text_discharge.setEnabled(false);
+        edit_text_quantity.setEnabled(false);
     }
 }

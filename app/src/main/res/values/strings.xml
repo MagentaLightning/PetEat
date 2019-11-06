@@ -154,6 +154,8 @@
     <string name="error_auth_reset">Error al enviar el correo electrónico de restablecimiento</string>
     <string name="error_min_password">Contraseña demasiado corta (mínimo 6 caracteres)</string>
     <string name="error_name_required">Nombre requerido</string>
+    <string name="error_quantity_no_valid">No válido</string>
+    <string name="error_same_email">El nuevo correo debe ser distinto al registrado</string>
     <string name="error_birth_date_required">Fecha requerida</string>
     <string name="error_weight_no_valid">No válido</string>
     <string name="error_height_no_valid">No válido</string>
