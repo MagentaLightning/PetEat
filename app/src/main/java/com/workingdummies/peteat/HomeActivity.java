@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -25,6 +26,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -52,6 +54,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user == null){
+            goLoginScreen();
+        }
+
+        //if (AccessToken.getCurrentAccessToken() == null){
+        //    goLoginScreen();
+        //}
 
         button_logout = findViewById(R.id.button_logout);
         Typeface RalewayRegular = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Regular.ttf");
@@ -106,7 +118,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                             public void onClick(DialogInterface dialog, int which) {
                                 FirebaseAuth.getInstance().signOut();
                                 LoginManager.getInstance().logOut();
-                                finish();
+                                goLoginScreen();
                             }
                         })
                         .show();
@@ -130,6 +142,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             //the method we have create in activity
             applyFontToMenuItem(mi);
         }
+    }
+
+    private void goLoginScreen() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     @Override

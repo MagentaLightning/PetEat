@@ -8,10 +8,13 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     Button button_sign_up, button_login, button_recover_password;
     LoginButton button_login_facebook;
     ProgressBar progressBar;
+    RelativeLayout myLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         progressBar = findViewById(R.id.progress_bar);
+
+        myLayout = findViewById(R.id.llForm);
 
         // Indicamos a qué elementos corresponden las variables
         // Llamamos al tipo de fuente
@@ -201,10 +207,7 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                     button_login.setEnabled(true);
                                 } else {
-                                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                                    startActivity(intent);
-                                    edit_text_email.setText("");
-                                    edit_text_password.setText("");
+                                    goHomeScreen();
                                     FailedSignup();
                                 }
                             }
@@ -284,11 +287,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                            startActivity(intent);
-                            edit_text_email.setText("");
-                            edit_text_password.setText("");
                             FailedSignup();
+                            goHomeScreen();
                         } else {
                             Toast.makeText(MainActivity.this, getString(R.string.error_auth_failed_),
                                     Toast.LENGTH_LONG).show();
@@ -298,6 +298,15 @@ public class MainActivity extends AppCompatActivity {
                         // ...
                     }
                 });
+    }
+
+    private void goHomeScreen() {
+        myLayout.requestFocus();
+        edit_text_email.setText("");
+        edit_text_password.setText("");
+        Intent intent = new Intent(this, HomeActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     @Override

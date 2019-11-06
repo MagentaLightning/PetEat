@@ -19,6 +19,7 @@
         android:orientation="vertical"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:focusable="true"
         android:focusableInTouchMode="true"
         android:layout_above="@id/button_recover_password">
 
@@ -28,7 +29,6 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:orientation="vertical"
-            android:focusableInTouchMode="true"
             tools:ignore="UselessParent">
 
             <ImageView
