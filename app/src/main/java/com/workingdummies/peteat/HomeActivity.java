@@ -166,10 +166,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
                         new HomeFragment()).commit();
                 break;
-            case R.id.nav_device_configurations:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new DeviceFragment()).commit();
-                break;
             case R.id.nav_preferences:
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
                         new PreferencesFragment()).commit();

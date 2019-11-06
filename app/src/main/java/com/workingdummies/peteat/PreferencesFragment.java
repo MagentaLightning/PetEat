@@ -92,7 +92,7 @@ public class PreferencesFragment extends Fragment {
 
         String[] TIME = new String[] {"1 Hora", "5 Horas", "12 Horas", "1 Día"};
 
-        ArrayAdapter<String> myListAdapter = new ArrayAdapter<>(Objects.requireNonNull(getActivity()), android.R.layout.simple_expandable_list_item_1, TIME);
+        ArrayAdapter<String> myListAdapter = new ArrayAdapter<>(Objects.requireNonNull(getActivity()),R.layout.item_layout,R.id.suggestions, TIME);
 
         @SuppressLint("CutPasteId") AutoCompleteTextView editTextFilledExposedDropdown = RootView.findViewById(R.id.filled_exposed_dropdown);
         editTextFilledExposedDropdown.setAdapter(myListAdapter);

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ public class ChangeEmailActivity extends AppCompatActivity {
     Button button_accept;
     EditText edit_text_email, edit_text_new_email, edit_text_password, edit_text_repeat_password;
     TextView text_view_change_notification, text_view_new_data;
+    ProgressBar progressBar;
 
     @SuppressLint("CutPasteId")
     @Override
@@ -31,6 +33,8 @@ public class ChangeEmailActivity extends AppCompatActivity {
         // Indicamos a qué elementos corresponden las variables
         // Llamamos al tipo de fuente
         // Aplicamos la fuente en los elementos
+
+        progressBar = findViewById(R.id.progress_bar);
 
         // BOTONES
         button_accept = findViewById(R.id.button_accept);

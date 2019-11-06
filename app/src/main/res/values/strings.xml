@@ -177,4 +177,5 @@
     </string-array>
 
     <string name="facebook_app_id">800957763675831</string> <string name="fb_login_protocol_scheme">fb800957763675831</string>
+    <string name="edittext_input">0</string>
 </resources>

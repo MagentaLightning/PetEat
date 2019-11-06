@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,12 +22,15 @@ public class ChangePasswordActivity extends AppCompatActivity {
     Button button_accept;
     EditText edit_text_email, edit_text_new_password, edit_text_new_repeat_password, edit_text_password, edit_text_repeat_password;
     TextView text_view_change_notification, text_view_new_data;
+    ProgressBar progressBar;
 
     @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
+
+        progressBar = findViewById(R.id.progress_bar);
 
         // Indicamos a qué elementos corresponden las variables
         // Llamamos al tipo de fuente

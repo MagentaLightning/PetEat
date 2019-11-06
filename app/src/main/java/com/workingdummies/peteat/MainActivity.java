@@ -8,9 +8,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -68,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         // BOTONES
         button_login_facebook = findViewById(R.id.button_login_facebook);
-        button_login_facebook.setReadPermissions("email", "public_profile");
+        button_login_facebook.setPermissions("email", "public_profile");
 
         button_sign_up = findViewById(R.id.button_signup);
         button_login = findViewById(R.id.button_login);
@@ -90,6 +88,12 @@ public class MainActivity extends AppCompatActivity {
         text_input_password.setTypeface(Raleway_Regular);
 
         FailedSignup();
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null){
+            goHomeScreen();
+        }
 
         button_sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -255,6 +259,8 @@ public class MainActivity extends AppCompatActivity {
         edit_text_password.setEnabled(true);
         button_login.setEnabled(true);
         button_login_facebook.setEnabled(true);
+        button_sign_up.setEnabled(true);
+        button_recover_password.setEnabled(true);
         button_login_facebook.setVisibility(View.VISIBLE);
     }
 
@@ -263,6 +269,8 @@ public class MainActivity extends AppCompatActivity {
         edit_text_password.setEnabled(false);
         button_login.setEnabled(false);
         button_login_facebook.setEnabled(false);
+        button_sign_up.setEnabled(false);
+        button_recover_password.setEnabled(false);
         button_login_facebook.setVisibility(View.INVISIBLE);
     }
 
@@ -286,16 +294,12 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            FirebaseUser user = mAuth.getCurrentUser();
                             FailedSignup();
                             goHomeScreen();
                         } else {
                             Toast.makeText(MainActivity.this, getString(R.string.error_auth_failed_),
                                     Toast.LENGTH_LONG).show();
-                            //updateUI(null);
                         }
-
-                        // ...
                     }
                 });
     }
@@ -313,7 +317,7 @@ public class MainActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        //FirebaseUser currentUser = mAuth.getCurrentUser();
         //updateUI(currentUser);
     }
 }

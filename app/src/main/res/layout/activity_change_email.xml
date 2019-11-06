@@ -134,4 +134,11 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:letterSpacing="0"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
 </RelativeLayout>
