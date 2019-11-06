@@ -26,7 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_centerInParent="true">
+            android:layout_centerInParent="true"
+            tools:ignore="UselessParent">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image_view_imagetype"
@@ -115,4 +116,11 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:letterSpacing="0"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
 </RelativeLayout>

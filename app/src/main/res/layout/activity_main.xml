@@ -28,6 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:orientation="vertical"
+            android:focusableInTouchMode="true"
             tools:ignore="UselessParent">
 
             <ImageView
@@ -51,10 +52,10 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_text_email"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-                    android:textSize="@dimen/edit_text_size"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"/>
+                    android:inputType="textEmailAddress"
+                    android:textSize="@dimen/edit_text_size" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -63,6 +64,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/edit_text_password"
                 app:endIconMode="password_toggle"
+                app:errorEnabled="true"
                 app:boxBackgroundColor="@color/text_input">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -89,25 +91,14 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:orientation="horizontal"
-                android:layout_marginTop="25dp">
+                android:layout_marginTop="30dp">
 
-                <TextView
-                    android:id="@+id/text_view_connect"
+                <com.facebook.login.widget.LoginButton
+                    android:id="@+id/button_login_facebook"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/text_view_connect"
-                    android:textColor="@color/primaryTextColor"
-                    android:textSize="14sp"
-                    android:layout_marginEnd="@dimen/item_margin_bottom"/>
-
-                <ImageButton
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/ic_facebook"
-                    android:layout_gravity="center"
-                    tools:ignore="ContentDescription"
-                    android:alpha="0.5"/>
+                    android:layout_gravity="center_horizontal"
+                    android:alpha="0.7"/>
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
@@ -138,4 +129,11 @@
         android:layout_alignParentEnd="true"
         tools:ignore="RelativeOverlap"
         android:letterSpacing="0"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
 </RelativeLayout>

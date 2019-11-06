@@ -145,6 +145,14 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
 
     <!-- ERROR MESSAGES-->
+    <string name="error_auth_failed">Falló la autenticación, verifique su correo electrónico y contraseña o regístrese</string>
+    <string name="error_auth_failed_signup">Registro fallido</string>
+    <string name="error_auth_failed_">Autenticación fallida</string>
+    <string name="error_email_exist">Este correo ya está registrado</string>
+    <string name="error_email_non_exist">Este correo no está registrado</string>
+    <string name="error_auth_successful_signup">Registro éxitoso</string>
+    <string name="error_auth_reset">Error al enviar el correo electrónico de restablecimiento</string>
+    <string name="error_min_password">Contraseña demasiado corta (mínimo 6 caracteres)</string>
     <string name="error_name_required">Nombre requerido</string>
     <string name="error_birth_date_required">Fecha requerida</string>
     <string name="error_weight_no_valid">No válido</string>
@@ -167,4 +175,6 @@
         <item value="3">Mediano</item>
         <item value="4">Grande</item>
     </string-array>
+
+    <string name="facebook_app_id">800957763675831</string> <string name="fb_login_protocol_scheme">fb800957763675831</string>
 </resources>
