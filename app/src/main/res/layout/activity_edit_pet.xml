@@ -232,7 +232,8 @@
                         android:textSize="16sp"
                         android:textAlignment="center"
                         android:text="@string/edittext_input"
-                        android:inputType="number"/>
+                        android:inputType="number"
+                        tools:ignore="Autofill,LabelFor" />
 
                     <androidx.appcompat.widget.AppCompatImageButton
                         android:id="@+id/button_plus_quantity"

@@ -40,18 +40,12 @@ public class EditPetActivity extends AppCompatActivity {
 
         progressBar = findViewById(R.id.progress_bar);
 
-        // Indicamos a qué elementos corresponden las variables
-        // Llamamos al tipo de fuente
-        // Aplicamos la fuente en los elementos
-
-        // BOTONES
         button_update = findViewById(R.id.button_update);
         button_delete = findViewById(R.id.button_delete);
         Typeface QuicksandBold = Typeface.createFromAsset(getAssets(), "fonts/Quicksand_Bold.otf");
         button_update.setTypeface(QuicksandBold);
         button_delete.setTypeface(QuicksandBold);
 
-        //  TEXT VIEW
         text_view_kind = findViewById(R.id.text_view_kind);
         text_view_food = findViewById(R.id.text_view_food);
         text_view_discharge = findViewById(R.id.text_view_discharge);
@@ -64,7 +58,6 @@ public class EditPetActivity extends AppCompatActivity {
         text_view_quantity.setTypeface(QuicksandBold);
         text_view_per_discharge.setTypeface(QuicksandBold);
 
-        // EDIT TEXT & TEXT INPUT
         edit_text_name = findViewById(R.id.edit_text_name);
         text_input_name = findViewById(R.id.text_input_name);
         edit_text_discharge = findViewById(R.id.edit_text_discharge);
@@ -96,8 +89,8 @@ public class EditPetActivity extends AppCompatActivity {
             public void onClick(View v) {
                 new MaterialAlertDialogBuilder(EditPetActivity.this)
                         .setMessage(R.string.dialog_confirm_delete)
-                        .setNegativeButton("Cancelar", null)
-                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(getString(R.string.button_cancel), null)
+                        .setPositiveButton(getString(R.string.button_accept), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 Toast.makeText(EditPetActivity.this, R.string.snackbar_profile_deleted, Toast.LENGTH_LONG).show();
                                 finish();
@@ -111,8 +104,8 @@ public class EditPetActivity extends AppCompatActivity {
             public void onClick(View v) {
                 new MaterialAlertDialogBuilder(EditPetActivity.this)
                         .setMessage(R.string.dialog_confirm_changes)
-                        .setNegativeButton("Cancelar", null)
-                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(getString(R.string.button_cancel), null)
+                        .setPositiveButton(getString(R.string.button_accept), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 Toast.makeText(EditPetActivity.this, R.string.snackbar_profile_updated, Toast.LENGTH_LONG).show();
                                 finish();

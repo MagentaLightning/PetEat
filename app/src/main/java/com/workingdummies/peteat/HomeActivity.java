@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -87,7 +86,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_device_configurations, R.id.nav_preferences,
+                R.id.nav_home, R.id.nav_preferences,
                 R.id.nav_account_configurations, R.id.nav_about, R.id.nav_share)
                 .setDrawerLayout(drawer)
                 .build();
@@ -113,8 +112,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View v) {
                 new MaterialAlertDialogBuilder(HomeActivity.this)
                         .setMessage(R.string.dialog_sign_out)
-                        .setNegativeButton("Cancelar", null)
-                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(getString(R.string.button_cancel), null)
+                        .setPositiveButton(getString(R.string.button_accept), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 FirebaseAuth.getInstance().signOut();
                                 LoginManager.getInstance().logOut();
@@ -179,7 +178,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(i);
                 break;
             case R.id.nav_share:
-                Toast.makeText(this, "Compartir", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, getString(R.string.menu_share), Toast.LENGTH_LONG).show();
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);

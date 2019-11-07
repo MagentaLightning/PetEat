@@ -140,8 +140,8 @@ public class ChangeEmailActivity extends AppCompatActivity {
                 Verification();
                 new MaterialAlertDialogBuilder(ChangeEmailActivity.this)
                         .setMessage(R.string.dialog_confirm_changes)
-                        .setNegativeButton("Cancelar", null)
-                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(getString(R.string.button_cancel), null)
+                        .setPositiveButton(getString(R.string.button_accept), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 Toast.makeText(ChangeEmailActivity.this, R.string.snackbar_profile_updated, Toast.LENGTH_LONG).show();
                                 finish();

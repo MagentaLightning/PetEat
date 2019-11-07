@@ -2,6 +2,7 @@ package com.workingdummies.peteat;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -60,37 +61,30 @@ public class PreferencesFragment extends Fragment {
 
         View RootView = inflater.inflate(R.layout.fragment_preferences, container, false);
 
-        // Indicamos a qué elementos corresponden las variables
-        // Llamamos al tipo de fuente
-        // Aplicamos la fuente en los elementos
-
-        // BOTONES
         button_accept = RootView.findViewById(R.id.button_accept);
         Typeface QuicksandBold = Typeface.createFromAsset(mContext.getAssets(), "fonts/Quicksand_Bold.otf");
         button_accept.setTypeface(QuicksandBold);
 
-        // EDIT TEXT & TEXT INPUT
         text_input_messages = RootView.findViewById(R.id.text_input_messages);
         Typeface RalewayRegular = Typeface.createFromAsset(mContext.getAssets(), "fonts/Raleway-Regular.ttf");
         text_input_messages.setTypeface(RalewayRegular);
 
-        //  TEXT VIEW
         text_view_messages = RootView.findViewById(R.id.text_view_messages);
         text_view_messages.setTypeface(RalewayRegular);
         text_view_notifications = RootView.findViewById(R.id.text_view_notifications);
         text_view_notifications.setTypeface(RalewayRegular);
 
-        // CHECKBOX
         checkbox_sound = RootView.findViewById(R.id.checkbox_sound);
         checkbox_sound.setTypeface(RalewayRegular);
         checkbox_vibration = RootView.findViewById(R.id.checkbox_vibration);
         checkbox_vibration.setTypeface(RalewayRegular);
 
-        // AUTO COMPLETE TEXT VIEW
         filled_exposed_dropdown = RootView.findViewById(R.id.filled_exposed_dropdown);
         filled_exposed_dropdown.setTypeface(RalewayRegular);
 
-        String[] TIME = new String[] {"1 Hora", "5 Horas", "12 Horas", "1 Día"};
+
+        Resources res = getResources();
+        String[] TIME = res.getStringArray(R.array.list_view_notifications_frequency);
 
         ArrayAdapter<String> myListAdapter = new ArrayAdapter<>(Objects.requireNonNull(getActivity()),R.layout.item_layout,R.id.suggestions, TIME);
 

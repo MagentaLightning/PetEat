@@ -60,11 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
         myLayout = findViewById(R.id.llForm);
 
-        // Indicamos a qué elementos corresponden las variables
-        // Llamamos al tipo de fuente
-        // Aplicamos la fuente en los elementos
-
-        // BOTONES
         button_login_facebook = findViewById(R.id.button_login_facebook);
         button_login_facebook.setPermissions("email", "public_profile");
 
@@ -76,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
         button_login.setTypeface(Quicksand_Bold);
         button_recover_password.setTypeface(Quicksand_Bold);
 
-        // EDIT TEXT & TEXT INPUT
         edit_text_email = findViewById(R.id.edit_text_email);
         text_input_email = findViewById(R.id.text_input_email);
         edit_text_password = findViewById(R.id.edit_text_password);

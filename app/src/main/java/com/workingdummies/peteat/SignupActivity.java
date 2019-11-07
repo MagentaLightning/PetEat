@@ -44,18 +44,12 @@ public class SignupActivity extends AppCompatActivity {
 
         progressBar = findViewById(R.id.progress_bar);
 
-        // Indicamos a qué elementos corresponden las variables
-        // Llamamos al tipo de fuente
-        // Aplicamos la fuente en los elementos
-
-        // BOTONES
         button_sign_up = findViewById(R.id.button_signup);
         button_signin = findViewById(R.id.button_signin);
         Typeface Quicksand_Bold = Typeface.createFromAsset(getAssets(), "fonts/Quicksand_Bold.otf");
         button_sign_up.setTypeface(Quicksand_Bold);
         button_signin.setTypeface(Quicksand_Bold);
 
-        // EDIT TEXT & TEXT INPUT
         edit_text_email = findViewById(R.id.edit_text_email);
         text_input_email = findViewById(R.id.text_input_email);
         edit_text_password = findViewById(R.id.edit_text_password);

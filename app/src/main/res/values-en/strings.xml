@@ -1,0 +1,154 @@
+<resources>
+    <string name="app_name">PetEat</string>
+    <!-- LOGIN ACTIVITY -->
+    <string name="edit_text_email">E-mail</string>
+    <string name="edit_text_password">Password</string>
+    <string name="button_login">Login</string>
+    <string name="button_recover_password">Forgotten Password</string>
+    <string name="button_signup">Signup</string>
+    <!--  -->
+
+    <!-- SIGNUP ACTIVITY -->
+    <string name="edit_text_repeat_password">Repeat Password</string>
+    <string name="button_signin">Sign in</string>
+    <!--  -->
+
+    <!-- FORGOTTEN ACTIVITY -->
+    <string name="text_view_recover_info">Enter your email to send a password change link and recover your account.</string>
+    <string name="button_recover">Recover</string>
+    <!--  -->
+
+    <!-- HOME ACTIVITY -->
+    <string name="menu_home">Home</string>
+    <string name="menu_preferences">Preferences</string>
+    <string name="menu_account_configurations">Account settings</string>
+    <string name="menu_communicate">Communicate</string>
+    <string name="menu_about">About</string>
+    <string name="menu_share">Share</string>
+    <string name="text_view_no_pet">Press the "+" icon to add your pet</string>
+    <!--  -->
+
+    <!-- NAVIGATION DRAW  -->
+    <string name="navigation_drawer_item_preferences">Preferences</string>
+    <string name="navigation_drawer_item_account_configurations">Account settings</string>
+    <string name="navigation_drawer_item_about">About</string>
+    <string name="navigation_drawer_item_share">Share</string>
+    <string name="button_logout">Log out</string>
+    <!--  -->
+
+    <!-- DEVICE CONFIGURATION ACTIVITY -->
+    <!--  -->
+
+    <!-- PREFERENCES ACTIVITY -->
+    <string name="text_view_notifications">Receive notifications</string>
+    <string name="text_view_messages">Messages every:</string>
+    <string name="checkbox_sound">Sound</string>
+    <string name="checkbox_vibration">Vibration</string>
+    <string name="button_accept">Accept</string>
+    <string name="button_change_email">Change e-mail</string>
+    <!--  -->
+
+    <!-- ACCOUNT CONFIGURATIONS ACTIVITY -->
+    <string name="button_change_password">Change Password</string>
+    <string name="edit_text_new_email">New E-mail</string>
+    <!--  -->
+
+    <!-- CHANGE DATA ACTIVITIES -->
+    <string name="text_view_change_notification">You are about to make changes to your account, so a reauthentication is necessary</string>
+    <string name="text_view_new_data">Enter the new information for your account here</string>
+    <string name="edit_text_new_password">New Password</string>
+    <string name="edit_text_repeat_new_password">Repeat new password</string>
+    <!--  -->
+
+    <!-- ABOUT ACTIVITY -->
+    <string name="text_view_about">PetEat™ it is a tool developed and elaborated by the creative team Working Dummies, a team made up of small great entrepreneurs with something common: the love for pets.
+\n\nPetEat™ It will be in charge of supporting you in the feeding of your pet, at the same time providing information about your food without needing to be near the feeder.</string>
+    <string name="text_view_credits"> Icons made by Freepik \nBrand designs and Edits made by Magenta Lightning</string>
+    <string name="text_view_kind">Species</string>
+    <!--  -->
+
+    <!-- ADD PET ACTIVITY -->
+    <string name="text_view_name">Name</string>
+    <string name="edit_text_name">Name</string>
+    <string name="list_view_default">Choose</string>
+    <string name="text_view_food">FOOD</string>
+    <string name="text_view_discharge">Downloads</string>
+    <string name="text_view_per_day">(per day)</string>
+    <string name="text_view_quantity">Quantity</string>
+    <string name="text_view_per_discharge">(for discharge)</string>
+    <string name="button_add">Add</string>
+    <string name="text_view_consumed_food">Consumed</string>
+    <string name="text_view_consumed_water">Consumed</string>
+    <!--  -->
+
+    <!-- HOME PET ACTIVITY -->
+    <string name="text_view_food_gr">587 gr</string>
+    <string name="text_view_remain_food">1413 gr</string>
+    <string name="text_view_water_ml">347 ml</string>
+    <string name="text_view_remain_water">653 ml</string>
+    <string name="text_view_remain">Remaining</string>
+    <string name="button_update">Update</string>
+    <string name="button_delete">Delete</string>
+    <!--  -->
+
+    <!-- EDIT PET ACTIVITY -->
+    <string name="text_view_warning">Waring</string>
+    <string name="text_view_excellent">Everything is normal</string>
+    <!--  -->
+
+    <!-- ALERTS -->
+    <string name="text_view_warning_low_feed">Low food consumption</string>
+    <string name="text_view_warning_low_water">Low water consumption</string>
+    <string name="text_view_warning_high_water">High water consumption</string>
+    <string name="text_view_normal">It has been a good boy. :)</string>
+    <string name="snackbar_recover_email">Recovery email sent</string>
+    <string name="snackbar_successful_signup">Successful sign up</string>
+    <!--  -->
+
+    <!-- EMERGIN ELEMENTS -->
+    <string name="dialog_sign_out">Sign out?</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="snackbar_email_updated">E-mail updated</string>
+    <string name="snackbar_pet_added">Pet added</string>
+    <string name="snackbar_preferences_updated">Preferences updated</string>
+    <string name="dialog_confirm_changes">Confirm changes?</string>
+    <string name="dialog_confirm_delete">Confirm delete?</string>
+    <string name="dialog_confirm_add">Confirm add?</string>
+    <string name="snackbar_profile_updated">Profile updated</string>
+    <string name="snackbar_profile_deleted">Profile deleted</string>
+    <string name="error_email_required">E-mail required</string>
+    <string name="error_password_required">Password required</string>
+
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+
+    <!-- ERROR MESSAGES-->
+    <string name="error_auth_failed">Authentication failed, verify your email and password or sign up</string>
+    <string name="error_auth_failed_signup">Sign up failed</string>
+    <string name="error_auth_failed_">Authentication failed</string>
+    <string name="error_email_exist">This email is already registered</string>
+    <string name="error_email_non_exist">This email is not registered</string>
+    <string name="error_auth_successful_signup">Successful registration</string>
+    <string name="error_auth_reset">Error sending reset email</string>
+    <string name="error_min_password">Password too short (minimum 6 characters)</string>
+    <string name="error_same_email">The new email must be different from the registered one</string>
+    <string name="error_name_required">Name required</string>
+    <string name="error_discharge_no_valid">Not valid</string>
+    <string name="error_quantity_no_valid">Not valid</string>
+    <string name="error_email_format">Invalid format</string>
+    <string name="error_repeat_password">Passwords don´t match</string>
+    <string name="text_view_name_pet">NAME</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_logout">Log out</string>
+    <string-array name="list_view_notifications_frequency">
+        <item value="5">5 Hours</item>
+        <item value="12">12 Hours</item>
+        <item value="24">24 Hours</item>
+    </string-array>
+
+    <string name="facebook_app_id">800957763675831</string> <string name="fb_login_protocol_scheme">fb800957763675831</string>
+    <string name="edittext_input">0</string>
+</resources>

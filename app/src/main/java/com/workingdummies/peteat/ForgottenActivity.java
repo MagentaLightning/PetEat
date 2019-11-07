@@ -37,25 +37,18 @@ public class ForgottenActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_forgotten);
 
-        // Indicamos a qué elementos corresponden las variables
-        // Llamamos al tipo de fuente
-        // Aplicamos la fuente en los elementos
-
-        // BOTONES
         button_recover_password = findViewById(R.id.button_recover_password);
         button_signin = findViewById(R.id.button_signin);
         Typeface Quicksand = Typeface.createFromAsset(getAssets(), "fonts/Quicksand_Bold.otf");
         button_recover_password.setTypeface(Quicksand);
         button_signin.setTypeface(Quicksand);
 
-        // EDIT TEXT & TEXT INPUT
         edit_text_email = findViewById(R.id.edit_text_email);
         text_input_email = findViewById(R.id.text_input_email);
         Typeface RalewayRegular = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Regular.ttf");
         edit_text_email.setTypeface(RalewayRegular);
         text_input_email.setTypeface(RalewayRegular);
 
-        // TEXT VIEW
         text_view_recover_info = findViewById(R.id.text_view_recover_info);
         Typeface Raleway_Medium = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Medium.ttf");
         text_view_recover_info.setTypeface(Raleway_Medium);

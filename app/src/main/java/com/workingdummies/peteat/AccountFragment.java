@@ -24,7 +24,6 @@ public class AccountFragment extends Fragment {
     Button button_change_password, button_change_email;
     EditText edit_text_email, edit_text_password;
 
-    // CONTEXT ES PARA APLICAR FUENTES EN FRAGMENTS
     private Context mContext;
     @Override
     public void onAttach(Context context) {
@@ -34,7 +33,6 @@ public class AccountFragment extends Fragment {
     }
     //
 
-    // CON ESTE MÉTODO ELIMINAMOS ELEMENTOS DEL TOPBAR, EN ESTE CASO ES EL DE AGREGAR MASCOTA
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         MenuItem item=menu.findItem(R.id.action_button_add);
@@ -51,11 +49,6 @@ public class AccountFragment extends Fragment {
 
         View RootView = inflater.inflate(R.layout.fragment_account, container, false);
 
-        // Indicamos a qué elementos corresponden las variables
-        // Llamamos al tipo de fuente
-        // Aplicamos la fuente en los elementos
-
-        // EDIT TEXT & TEXT INPUT
         text_input_email = RootView.findViewById(R.id.text_input_email);
         edit_text_email = RootView.findViewById(R.id.edit_text_email);
         text_input_password = RootView.findViewById(R.id.text_input_password);
@@ -66,7 +59,6 @@ public class AccountFragment extends Fragment {
         text_input_password.setTypeface(RalewayRegular);
         edit_text_password.setTypeface(RalewayRegular);
 
-        //  BOTONES
         button_change_password = RootView.findViewById(R.id.button_change_password);
         button_change_password.setTypeface(RalewayRegular);
         button_change_email = RootView.findViewById(R.id.button_change_email);

@@ -64,7 +64,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
         text_input_new_repeat_password.setTypeface(RalewayRegular);
         edit_text_new_repeat_password.setTypeface(RalewayRegular);
 
-        // TEXTVIEW
         text_view_change_notification = findViewById(R.id.text_view_change_notification);
         text_view_new_data = findViewById(R.id.text_view_new_data);
         Typeface RalewayMedium = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Medium.ttf");
@@ -157,8 +156,8 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 Verification();
                 new MaterialAlertDialogBuilder(ChangePasswordActivity.this)
                         .setMessage(R.string.dialog_confirm_changes)
-                        .setNegativeButton("Cancelar", null)
-                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(getString(R.string.button_cancel), null)
+                        .setPositiveButton(getString(R.string.button_accept), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 Toast.makeText(ChangePasswordActivity.this, R.string.snackbar_profile_updated, Toast.LENGTH_LONG).show();
                                 finish();

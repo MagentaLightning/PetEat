@@ -3,11 +3,9 @@
     <!-- LOGIN ACTIVITY -->
     <string name="edit_text_email">E-mail</string>
     <string name="edit_text_password">Contraseña</string>
-    <string name="checkbox_remember_me">Recuérdame</string>
     <string name="button_login">Ingresar</string>
     <string name="button_recover_password">Contraseña olvidada</string>
     <string name="button_signup">Registrarse</string>
-    <string name="text_view_connect">O ingresa con:</string>
     <!--  -->
 
     <!-- SIGNUP ACTIVITY -->
@@ -22,7 +20,6 @@
 
     <!-- HOME ACTIVITY -->
     <string name="menu_home">Home</string>
-    <string name="menu_device_configurations">Configurar alimentador</string>
     <string name="menu_preferences">Preferencias</string>
     <string name="menu_account_configurations">Configuración de cuenta</string>
     <string name="menu_communicate">Comunicar</string>
@@ -32,7 +29,6 @@
     <!--  -->
 
     <!-- NAVIGATION DRAW  -->
-    <string name="navigation_drawer_item_device_configurations">Configurar alimentador</string>
     <string name="navigation_drawer_item_preferences">Preferencias</string>
     <string name="navigation_drawer_item_account_configurations">Configuración de cuenta</string>
     <string name="navigation_drawer_item_about">Acerca de</string>
@@ -41,9 +37,6 @@
     <!--  -->
 
     <!-- DEVICE CONFIGURATION ACTIVITY -->
-    <string name="helper_id_device">ID del dispositivo</string>
-    <string name="text_view_wifi_name">Nombre de la red:</string>
-    <string name="button_connect">Conectar</string>
     <!--  -->
 
     <!-- PREFERENCES ACTIVITY -->
@@ -69,7 +62,7 @@
 
     <!-- ABOUT ACTIVITY -->
     <string name="text_view_about">PetEat™ es una herramienta desarrollada y elaborada por el equipo creativo Working Dummies, equipo conformado por pequeños grandes emprendedores con algo común: el amor a las mascotas.
-\n\nPetEat™ se encargará de apoyarte en la alimentación de tu mascota, a la vez de proporcionarte información de su alimentación sin necesidad de estar cerca del alimentador.</string>
+\n\nPetEat™ se encargará de apoyarte en la alimentación de tu mascota, a la vez de proporcionar información de su alimentación sin necesidad de estar cerca del alimentador.</string>
     <string name="text_view_credits"> Icons made by Freepik \nBrand designs and Edits made by Magenta Lightning</string>
     <string name="text_view_kind">Especie</string>
     <!--  -->
@@ -77,23 +70,12 @@
     <!-- ADD PET ACTIVITY -->
     <string name="text_view_name">Nombre</string>
     <string name="edit_text_name">Nombre</string>
-    <string name="text_view_sex">Sexo</string>
-    <string name="radio_button_male">Macho</string>
-    <string name="radio_button_female">Hembra</string>
-    <string name="text_view_birth_date">Fecha de nacimiento</string>
-    <string name="text_view_weight">Peso</string>
-    <string name="text_view_kg">(kg)</string>
-    <string name="text_view_height">Altura</string>
-    <string name="text_view_cm">(cm)</string>
-    <string name="text_view_size">Tamaño</string>
     <string name="list_view_default">Selecciona</string>
     <string name="text_view_food">ALIMENTO</string>
     <string name="text_view_discharge">Descargas</string>
     <string name="text_view_per_day">(al día)</string>
     <string name="text_view_quantity">Cantidad</string>
     <string name="text_view_per_discharge">(por descarga)</string>
-    <string name="text_view_identifier">IDENTIFICADOR</string>
-    <string name="identifier_default">ID del Dispositivo</string>
     <string name="button_add">Agregar</string>
     <string name="text_view_consumed_food">Consumido</string>
     <string name="text_view_consumed_water">Consumida</string>
@@ -126,7 +108,6 @@
     <!-- EMERGIN ELEMENTS -->
     <string name="dialog_sign_out">¿Cerrar sesión?</string>
     <string name="button_cancel">Cancelar</string>
-    <string name="snackbar_successful_connection">Conexión éxitosa</string>
     <string name="snackbar_email_updated">E-mail actualizado</string>
     <string name="snackbar_pet_added">Mascota agregada</string>
     <string name="snackbar_preferences_updated">Preferencias actualizadas</string>
@@ -153,14 +134,10 @@
     <string name="error_auth_successful_signup">Registro éxitoso</string>
     <string name="error_auth_reset">Error al enviar el correo electrónico de restablecimiento</string>
     <string name="error_min_password">Contraseña demasiado corta (mínimo 6 caracteres)</string>
-    <string name="error_name_required">Nombre requerido</string>
-    <string name="error_quantity_no_valid">No válido</string>
     <string name="error_same_email">El nuevo correo debe ser distinto al registrado</string>
-    <string name="error_birth_date_required">Fecha requerida</string>
-    <string name="error_weight_no_valid">No válido</string>
-    <string name="error_height_no_valid">No válido</string>
+    <string name="error_name_required">Nombre requerido</string>
     <string name="error_discharge_no_valid">No válido</string>
-    <string name="error_identifier_required">Identificador requerido</string>
+    <string name="error_quantity_no_valid">No válido</string>
     <string name="error_email_format">Formato no válido</string>
     <string name="error_repeat_password">Contraseñas no coinciden</string>
     <string name="text_view_name_pet">NOMBRE</string>
@@ -170,12 +147,6 @@
         <item value="5">5 Horas</item>
         <item value="12">12 Horas</item>
         <item value="24">24 Horas</item>
-    </string-array>
-    <string-array name="list_view_pet_size">
-        <item value="1">Miniatura</item>
-        <item value="2">Pequeño</item>
-        <item value="3">Mediano</item>
-        <item value="4">Grande</item>
     </string-array>
 
     <string name="facebook_app_id">800957763675831</string> <string name="fb_login_protocol_scheme">fb800957763675831</string>

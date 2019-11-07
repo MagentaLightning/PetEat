@@ -38,15 +38,9 @@ public class HomeFragment extends Fragment {
 
         View RootView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        // Indicamos a qué elementos corresponden las variables
-        // Llamamos al tipo de fuente
-        // Aplicamos la fuente en los elementos
-
-        // IMAGEBUTTON
         button_record = RootView.findViewById(R.id.image_record);
         button_edit = RootView.findViewById(R.id.ic_edit);
 
-        // TEXTVIEW
         text_view_food_gr = RootView.findViewById(R.id.text_view_food_gr);
         text_view_remain_food_gr = RootView.findViewById(R.id.text_view_remain_food_gr);
         text_view_water_ml = RootView.findViewById(R.id.text_view_water_ml);

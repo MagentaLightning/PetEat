@@ -15,11 +15,6 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        // Indicamos a qué elementos corresponden las variables
-        // Llamamos al tipo de fuente
-        // Aplicamos la fuente en los elementos
-
-        // TEXTVIEW
         text_view_about = findViewById(R.id.text_view_about);
         text_view_credits = findViewById(R.id.text_view_credits);
         Typeface RalewayRegular = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Medium.ttf");

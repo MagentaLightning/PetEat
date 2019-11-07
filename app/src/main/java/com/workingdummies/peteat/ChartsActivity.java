@@ -51,7 +51,7 @@ public class ChartsActivity extends AppCompatActivity {
         button_location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ChartsActivity.this, "Abrir Google Maps", Toast.LENGTH_LONG).show();
+                Toast.makeText(ChartsActivity.this, "Google Maps", Toast.LENGTH_LONG).show();
             }
         });
     }
