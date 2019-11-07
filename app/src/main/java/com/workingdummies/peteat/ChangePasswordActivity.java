@@ -74,6 +74,87 @@ public class ChangePasswordActivity extends AppCompatActivity {
         button_accept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                text_input_email.setError(null);
+                text_input_password.setError(null);
+                text_input_repeat_password.setError(null);
+                text_input_new_password.setError(null);
+                text_input_new_repeat_password.setError(null);
+                button_accept.setEnabled(false);
+
+                if (edit_text_email.getText().toString().isEmpty()) {
+                    text_input_email.setError(getText(R.string.error_email_required));
+                    button_accept.setEnabled(true);
+                    return;
+                }
+
+                if (!isEmailValid(edit_text_email.getText().toString())){
+                    text_input_email.setError(getText(R.string.error_email_format));
+                    button_accept.setEnabled(true);
+                    return;
+                }
+                if (edit_text_password.getText().toString().isEmpty()) {
+                    text_input_password.setError(getText(R.string.error_password_required));
+                    button_accept.setEnabled(true);
+                    return;
+                }
+
+                if (edit_text_password.length() < 6) {
+                    text_input_password.setError(getString(R.string.error_min_password));
+                    button_accept.setEnabled(true);
+                    return;
+                }
+
+                if (edit_text_repeat_password.getText().toString().isEmpty()) {
+                    text_input_repeat_password.setError(getText(R.string.error_password_required));
+                    button_accept.setEnabled(true);
+                    return;
+                }
+
+                if (edit_text_repeat_password.length() < 6) {
+                    text_input_repeat_password.setError(getString(R.string.error_min_password));
+                    button_accept.setEnabled(true);
+                    return;
+                }
+                if (!edit_text_password.getText().toString().equals(edit_text_repeat_password.getText().toString())) {
+                    text_input_password.setError(getString(R.string.error_repeat_password));
+                    text_input_repeat_password.setError(getString(R.string.error_repeat_password));
+                    button_accept.setEnabled(true);
+                    return;
+                }
+
+                if (edit_text_new_password.getText().toString().isEmpty()) {
+                    text_input_new_password.setError(getText(R.string.error_password_required));
+                    button_accept.setEnabled(true);
+                    return;
+                }
+
+                if (edit_text_new_password.length() < 6) {
+                    text_input_new_password.setError(getString(R.string.error_min_password));
+                    button_accept.setEnabled(true);
+                    return;
+                }
+
+                if (edit_text_new_repeat_password.getText().toString().isEmpty()) {
+                    text_input_new_repeat_password.setError(getText(R.string.error_password_required));
+                    button_accept.setEnabled(true);
+                    return;
+                }
+
+                if (edit_text_new_repeat_password.length() < 6) {
+                    text_input_new_repeat_password.setError(getString(R.string.error_min_password));
+                    button_accept.setEnabled(true);
+                    return;
+                }
+                if (!edit_text_new_password.getText().toString().equals(edit_text_new_repeat_password.getText().toString())) {
+                    text_input_new_password.setError(getString(R.string.error_repeat_password));
+                    text_input_new_repeat_password.setError(getString(R.string.error_repeat_password));
+                    button_accept.setEnabled(true);
+                    return;
+                }
+
+                progressBar.setVisibility(View.VISIBLE);
+                Verification();
                 new MaterialAlertDialogBuilder(ChangePasswordActivity.this)
                         .setMessage(R.string.dialog_confirm_changes)
                         .setNegativeButton("Cancelar", null)
@@ -87,4 +168,16 @@ public class ChangePasswordActivity extends AppCompatActivity {
             }
         });
     }
+    boolean isEmailValid(CharSequence email) {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
+    public void Verification() {
+        edit_text_email.setEnabled(false);
+        edit_text_password.setEnabled(false);
+        edit_text_repeat_password.setEnabled(false);
+        edit_text_new_password.setEnabled(false);
+        edit_text_new_repeat_password.setEnabled(false);
+    }
 }
+
