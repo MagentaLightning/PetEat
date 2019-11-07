@@ -1,10 +1,12 @@
 package com.workingdummies.peteat;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageButton;
 
 import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,10 +21,13 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class AddPetActivity extends AppCompatActivity {
 
+    int cont = 0;
+    int cont2 = 0;
     TextInputLayout text_input_name;
     EditText edit_text_name, edit_text_discharge,
             edit_text_quantity;
     Button button_add;
+    AppCompatImageButton  button_minus_discharge, button_plus_discharge , button_minus_quantity, button_plus_quantity;
     RadioGroup radio_group_kind;
     RadioButton radio_button_cat, radio_button_dog;
     TextView text_view_kind, text_view_food, text_view_discharge,
@@ -37,6 +42,10 @@ public class AddPetActivity extends AppCompatActivity {
         radio_group_kind = findViewById(R.id.radio_group_kind);
         radio_button_cat = findViewById(R.id.radio_button_cat);
         radio_button_dog = findViewById(R.id.radio_button_dog);
+        button_minus_discharge = findViewById(R.id.button_minus_discharge);
+        button_plus_discharge = findViewById(R.id.button_plus_discharge);
+        button_minus_quantity = findViewById(R.id.button_minus_quantity);
+        button_plus_quantity = findViewById(R.id.button_plus_quantity);
 
         progressBar = findViewById(R.id.progress_bar);
 
@@ -84,9 +93,107 @@ public class AddPetActivity extends AppCompatActivity {
             }
         });
 
+        button_plus_discharge.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                cont = cont + 1;
+
+                edit_text_discharge.setText(String.valueOf(cont));
+                button_minus_discharge.setEnabled(true);
+
+                return true;
+            }
+        });
+
+        button_minus_discharge.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                cont = cont - 1;
+
+
+                if(cont<0){
+                    cont=0;
+                    edit_text_discharge.setText(String.valueOf(cont));
+                    button_minus_discharge.setEnabled(false);
+
+                }
+
+                edit_text_discharge.setText(String.valueOf(cont));
+                return true;
+            }
+        });
+
+        button_plus_quantity.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                cont2 = cont2 + 1;
+
+                edit_text_quantity.setText(String.valueOf(cont2));
+                button_minus_quantity.setEnabled(true);
+
+                return true;
+            }
+        });
+
+        button_minus_quantity.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                cont2 = cont2 - 1;
+
+
+                if(cont2<0){
+                    cont2=0;
+                    edit_text_quantity.setText(String.valueOf(cont2));
+                    button_minus_quantity.setEnabled(false);
+
+                }
+
+                edit_text_quantity.setText(String.valueOf(cont2));
+                return true;
+            }
+        });
+
         button_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                text_input_name.setError(null);
+                edit_text_discharge.setError(null);
+                edit_text_quantity.setError(null);
+                button_add.setEnabled(false);
+
+
+                if (edit_text_name.getText().toString().isEmpty()) {
+                    text_input_name.setError(getText(R.string.error_name_required));
+                    button_add.setEnabled(true);
+                    return;
+                }
+
+                if (edit_text_discharge.getText().toString().isEmpty()) {
+                    edit_text_discharge.setError(getText(R.string.error_discharge_no_valid));
+                    button_add.setEnabled(true);
+                    return;
+                }
+
+                if (Integer.parseInt(edit_text_discharge.getText().toString()) == 0) {
+                    edit_text_discharge.setError(getString(R.string.error_discharge_no_valid));
+                    button_add.setEnabled(true);
+                    return;
+                }
+
+                if (edit_text_quantity.getText().toString().isEmpty()) {
+                    edit_text_quantity.setError(getText(R.string.error_quantity_no_valid));
+                    button_add.setEnabled(true);
+                    return;
+                }
+
+                if (Integer.parseInt(edit_text_quantity.getText().toString()) == 0 ) {
+                    edit_text_quantity.setError(getString(R.string.error_quantity_no_valid));
+                    button_add.setEnabled(true);
+                    return;
+                }
+                progressBar.setVisibility(View.VISIBLE);
+                Verification();
                 new MaterialAlertDialogBuilder(AddPetActivity.this)
                         .setMessage(R.string.dialog_confirm_add)
                         .setNegativeButton(getString(R.string.button_cancel), null)
@@ -99,5 +206,10 @@ public class AddPetActivity extends AppCompatActivity {
                         .show();
             }
         });
+    }
+    public void Verification() {
+        edit_text_name.setEnabled(false);
+        edit_text_discharge.setEnabled(false);
+        edit_text_quantity.setEnabled(false);
     }
 }
