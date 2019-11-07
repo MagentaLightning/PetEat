@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "135949490522",
+    "firebase_url": "https://peteat-dabba.firebaseio.com",
+    "project_id": "peteat-dabba",
+    "storage_bucket": "peteat-dabba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135949490522:android:4ef43e0dce0eba0bfd3b63",
+        "android_client_info": {
+          "package_name": "com.workingdummies.peteat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "135949490522-ufrifhmaehfm4knfvecra4bghu54aord.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.workingdummies.peteat",
+            "certificate_hash": "ce9c27fdf3833bb7a5c7bc920316783bf599374b"
+          }
+        },
+        {
+          "client_id": "135949490522-r4mc74h3maeujfgluj4h8laqcs7fk1pg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHiY8Ubj5J9eaPnRsyXStpzc4NIQv-QPo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "135949490522-r4mc74h3maeujfgluj4h8laqcs7fk1pg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
