@@ -1,11 +1,13 @@
 package com.workingdummies.peteat;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,8 +15,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class ChangePasswordActivity extends AppCompatActivity {
 
@@ -160,8 +168,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                         .setNegativeButton("Cancelar", null)
                         .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(ChangePasswordActivity.this, R.string.snackbar_profile_updated, Toast.LENGTH_LONG).show();
-                                finish();
+                                changePassword();
                             }
                         })
                         .show();
@@ -178,6 +185,42 @@ public class ChangePasswordActivity extends AppCompatActivity {
         edit_text_repeat_password.setEnabled(false);
         edit_text_new_password.setEnabled(false);
         edit_text_new_repeat_password.setEnabled(false);
+    }
+    public void changePassword(){
+        progressBar.setVisibility(View.VISIBLE);
+        final String emailtext = edit_text_email.getText().toString().trim();
+        final String passwordtext = edit_text_password.getText().toString().trim();
+        final String newpasswordtext = edit_text_new_password.getText().toString().trim();
+
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        AuthCredential credential = EmailAuthProvider
+                .getCredential(emailtext, passwordtext);
+
+        user.reauthenticate(credential)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            user.updatePassword(newpasswordtext).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(ChangePasswordActivity.this, R.string.snackbar_profile_updated, Toast.LENGTH_LONG).show();
+                                        progressBar.setVisibility(View.GONE);
+                                        finish();
+                                    } else {
+                                        Toast.makeText(ChangePasswordActivity.this, R.string.error_snackbar_profile_failed,
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        } else {
+                            Toast.makeText(ChangePasswordActivity.this,R.string.error_auth_failed_,
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+        progressBar.setVisibility(View.GONE);
     }
 }
 
