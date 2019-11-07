@@ -22,49 +22,33 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="@string/fb_login_protocol_scheme" />
+                <data android:scheme="@string/fb_login_protocol_scheme"
+                    tools:ignore="ManifestResource" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".ChartsActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name=".ChartsActivity" />
         <activity
             android:name=".ChangePasswordActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ChangeEmailActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".AddPetActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".EditPetActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".AboutActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AddPetActivity" />
+        <activity android:name=".EditPetActivity" />
+        <activity android:name=".AboutActivity" />
         <activity
             android:name=".HomeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            
         </activity>
-        <activity
-            android:name=".ForgottenActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".SignupActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name=".ForgottenActivity" />
+        <activity android:name=".SignupActivity" />
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/SplashTheme" >
         </activity>
     </application>

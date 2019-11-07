@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_padding_top"
+    android:paddingBottom="@dimen/activity_padding_bottom"
+    android:paddingStart="@dimen/activity_padding_start"
+    android:paddingEnd="@dimen/activity_padding_end"
+    tools:context=".ForgottenActivity"
+    android:background="@color/colorBackground">
+
+    <RelativeLayout
+        android:id="@+id/llForm"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:focusableInTouchMode="true"
+        android:layout_above="@id/button_signin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            tools:ignore="UselessParent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/image_view_imagetype"
+                android:layout_width="250dp"
+                android:layout_height="98dp"
+                android:src="@drawable/ic_logotype"
+                android:layout_marginBottom="30dp"
+                android:layout_gravity="center"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_recover_info"
+                android:layout_width="600dp"
+                android:layout_height="match_parent"
+                android:text="@string/text_view_recover_info"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/text_view"
+                android:textSize="@dimen/text_about_size"
+                android:layout_marginBottom="@dimen/item_margin_bottom"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_email"
+                android:layout_width="300dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:hint="@string/edit_text_email"
+                app:endIconMode="clear_text"
+                app:boxBackgroundColor="@color/text_input"
+                android:layout_marginBottom="@dimen/item_margin_bottom">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_email"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:textSize="@dimen/edit_text_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_recover_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_recover"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:letterSpacing="0"
+                android:textSize="@dimen/button_text_size"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_signin"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_signin"
+        android:inputType="textCapSentences"
+        android:textSize="@dimen/button_text_size"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:letterSpacing="0"/>
+</RelativeLayout>
