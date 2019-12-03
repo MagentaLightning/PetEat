@@ -145,6 +145,9 @@
     <string name="text_view_name_pet">NOMBRE</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_logout">Cerrar sesión</string>
+    <string name="error_food_values">No hay valores de comida</string>
+    <string name="error_water_values">No hay valores de agua</string>
+
     <string-array name="list_view_notifications_frequency">
         <item value="5">5 Horas</item>
         <item value="12">12 Horas</item>

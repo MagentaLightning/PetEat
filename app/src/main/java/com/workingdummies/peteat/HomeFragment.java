@@ -116,6 +116,7 @@ public class HomeFragment extends Fragment {
         button_food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 checkFoodValue();
                 setFoodValue();
             }
@@ -124,10 +125,15 @@ public class HomeFragment extends Fragment {
         button_water.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 checkWaterValue();
                 setWaterValue();
             }
         });
+
+        setTextFoodValue();
+        setTextWaterValue();
+        setTextNameValue();
 
         return RootView;
     }
@@ -139,22 +145,34 @@ public class HomeFragment extends Fragment {
         String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
         mDatabase = FirebaseDatabase.getInstance().getReference().child(iduser).child("pet").child("1").child("foodwatervalidations");
 
-        mDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String foodvalidationstring= Objects.requireNonNull(dataSnapshot.child("food").getValue()).toString();
-                foodvalidation = Integer.parseInt(foodvalidationstring);
 
-                String watervalidationstring= Objects.requireNonNull(dataSnapshot.child("water").getValue()).toString();
-                watervalidation = Integer.parseInt(watervalidationstring);
-            }
+        try {
+            mDatabase.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    try{
+                    String foodvalidationstring = dataSnapshot.child("food").getValue().toString();
+                    foodvalidation = Integer.parseInt(foodvalidationstring);
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getApplicationContext(),databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                    String watervalidationstring = dataSnapshot.child("water").getValue().toString();
+                    watervalidation = Integer.parseInt(watervalidationstring);
+                    }
+                    catch(Exception e){
+                        Toast.makeText(getApplicationContext(), R.string.error_food_values, Toast.LENGTH_LONG).show();
+                    }
 
-            }
-        });
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(getApplicationContext(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }
+        catch(Exception e){
+            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+        }
 
 
 
@@ -203,22 +221,33 @@ public class HomeFragment extends Fragment {
         String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
         mDatabase = FirebaseDatabase.getInstance().getReference().child(iduser).child("pet").child("1").child("foodwatervalidations");
 
-        mDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String watervalidationstring= Objects.requireNonNull(dataSnapshot.child("water").getValue()).toString();
-                watervalidation = Integer.parseInt(watervalidationstring);
 
-                String foodvalidationstring= Objects.requireNonNull(dataSnapshot.child("food").getValue()).toString();
-                foodvalidation = Integer.parseInt(foodvalidationstring);
-            }
+        try {
+            mDatabase.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    try{
+                    String watervalidationstring = dataSnapshot.child("water").getValue().toString();
+                    watervalidation = Integer.parseInt(watervalidationstring);
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getApplicationContext(),databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                    String foodvalidationstring = dataSnapshot.child("food").getValue().toString();
+                    foodvalidation = Integer.parseInt(foodvalidationstring);
+                    }
+                    catch(Exception e){
+                        Toast.makeText(getApplicationContext(), R.string.error_water_values, Toast.LENGTH_LONG).show();
+                    }
+                }
 
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(getApplicationContext(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }
+        catch(Exception e){
+            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -258,5 +287,104 @@ public class HomeFragment extends Fragment {
         updateData.child("pet").child(idpet).child("foodwatervalidations").setValue(mapvalidationfood);
     }
 
+    public void setTextFoodValue(){
 
+        try {
+            String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+            mDatabase = FirebaseDatabase.getInstance().getReference().child(iduser).child("pet").child("1").child("foodgiven");
+        }
+        catch (Exception e){
+
+        }
+
+
+            mDatabase.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    try{
+                    String foodconsumed = dataSnapshot.child("consumed").getValue().toString();
+                    foodconsumed = foodconsumed + " gr";
+                    text_view_food_gr.setText(foodconsumed);
+                    }
+                    catch(Exception e){
+
+                    }
+
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(getApplicationContext(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+            });
+    }
+
+    public void setTextWaterValue(){
+
+        try {
+            String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+            mDatabase = FirebaseDatabase.getInstance().getReference().child(iduser).child("pet").child("1").child("watergiven");
+        }
+        catch (Exception e){
+
+        }
+
+
+            mDatabase.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    try{
+                    String waterconsumed = dataSnapshot.child("consumed").getValue().toString();
+                    waterconsumed = waterconsumed + " ml";
+                    text_view_water_ml.setText(waterconsumed);
+                    }
+                    catch(Exception e){
+
+                    }
+
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(getApplicationContext(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }
+
+    public void setTextNameValue(){
+
+        try {
+            String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+            mDatabase = FirebaseDatabase.getInstance().getReference().child(iduser).child("pet").child("1");
+        }
+        catch (Exception e){
+
+        }
+
+
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                try{
+                    String namestring = dataSnapshot.child("name").getValue().toString();
+                    text_view_name.setText(namestring);
+                }
+                catch(Exception e){
+
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getApplicationContext(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
 }

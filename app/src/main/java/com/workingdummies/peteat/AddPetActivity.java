@@ -242,8 +242,8 @@ public class AddPetActivity extends AppCompatActivity {
         String idpet = "1";
 
         Map<String, Object> mapfood = new HashMap<>();
-        mapfood.put("discharges", dischargetext );
-        mapfood.put("quantity", quantitytext);
+        mapfood.put("discharges", Integer.parseInt(dischargetext) );
+        mapfood.put("quantity", Integer.parseInt(quantitytext));
 
         Map<String, Object> mapfoodwatervalidations = new HashMap<>();
         mapfoodwatervalidations.put("food", 0 );
@@ -252,11 +252,12 @@ public class AddPetActivity extends AppCompatActivity {
         Map<String, Object> mapfoodgiven = new HashMap<>();
         mapfoodgiven.put("date", "06/11/2019");
         mapfoodgiven.put("time", "11:32");
-        mapfoodgiven.put("consumed", "15");
+        mapfoodgiven.put("consumed", 580);
 
         Map<String, Object> mapwatergiven = new HashMap<>();
         mapwatergiven.put("date", "06/11/2019");
         mapwatergiven.put("time", "12:32");
+        mapwatergiven.put("consumed", 340);
 
         Map<String, Object> mapsensors = new HashMap<>();
         mapsensors.put("foodcdistance", 22);
