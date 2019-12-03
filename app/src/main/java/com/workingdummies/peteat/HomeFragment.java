@@ -188,8 +188,8 @@ public class HomeFragment extends Fragment {
         String idpet = "1";
 
         Map<String, Object> mapvalidationfood = new HashMap<>();
-        mapvalidationfood.put("food", String.valueOf(foodvalidation) );
-        mapvalidationfood.put("water", String.valueOf(watervalidation) );
+        mapvalidationfood.put("food", foodvalidation);
+        mapvalidationfood.put("water", watervalidation);
 
         DatabaseReference updateData = FirebaseDatabase.getInstance().getReference().child(iduser);
 
@@ -250,8 +250,8 @@ public class HomeFragment extends Fragment {
         String idpet = "1";
 
         Map<String, Object> mapvalidationfood = new HashMap<>();
-        mapvalidationfood.put("water", String.valueOf(watervalidation) );
-        mapvalidationfood.put("food", String.valueOf(foodvalidation) );
+        mapvalidationfood.put("water", watervalidation );
+        mapvalidationfood.put("food", foodvalidation );
 
         DatabaseReference updateData = FirebaseDatabase.getInstance().getReference().child(iduser);
 

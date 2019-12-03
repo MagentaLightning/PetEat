@@ -246,8 +246,8 @@ public class AddPetActivity extends AppCompatActivity {
         mapfood.put("quantity", quantitytext);
 
         Map<String, Object> mapfoodwatervalidations = new HashMap<>();
-        mapfoodwatervalidations.put("food", "0" );
-        mapfoodwatervalidations.put("water", "0");
+        mapfoodwatervalidations.put("food", 0 );
+        mapfoodwatervalidations.put("water", 0);
 
         Map<String, Object> mapfoodgiven = new HashMap<>();
         mapfoodgiven.put("date", "06/11/2019");
