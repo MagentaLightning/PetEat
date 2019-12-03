@@ -259,9 +259,9 @@ public class AddPetActivity extends AppCompatActivity {
         mapwatergiven.put("time", "12:32");
 
         Map<String, Object> mapsensors = new HashMap<>();
-        mapsensors.put("foodcdistance", "22");
-        mapsensors.put("foodpdistance", "7");
-        mapsensors.put("waterlevel", "200");
+        mapsensors.put("foodcdistance", 22);
+        mapsensors.put("foodpdistance", 7);
+        mapsensors.put("waterlevel", 200);
 
 
         mDatabase.child(iduser).child("pet").child(idpet).child("name").setValue(nametext);
