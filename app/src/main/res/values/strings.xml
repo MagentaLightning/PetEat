@@ -89,6 +89,8 @@
     <string name="text_view_remain">Restante</string>
     <string name="button_update">Actualizar</string>
     <string name="button_delete">Eliminar</string>
+    <string name="dialog_open_food">¿Desea suministrar croquetas?</string>
+    <string name="dialog_open_water">¿Desea suministrar agua?</string>
     <!--  -->
 
     <!-- EDIT PET ACTIVITY -->

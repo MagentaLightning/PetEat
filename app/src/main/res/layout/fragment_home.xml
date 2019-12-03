@@ -86,7 +86,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="30">
 
-                    <ImageView
+                    <ImageButton
+                        android:id="@+id/image_food"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/ic_plate"
@@ -154,7 +155,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="30">
 
-                    <ImageView
+                    <ImageButton
+                        android:id="@+id/image_water"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/ic_drop"

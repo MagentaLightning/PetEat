@@ -245,6 +245,10 @@ public class AddPetActivity extends AppCompatActivity {
         mapfood.put("discharges", dischargetext );
         mapfood.put("quantity", quantitytext);
 
+        Map<String, Object> mapfoodwatervalidations = new HashMap<>();
+        mapfoodwatervalidations.put("food", "0" );
+        mapfoodwatervalidations.put("water", "0");
+
         Map<String, Object> mapfoodgiven = new HashMap<>();
         mapfoodgiven.put("date", "06/11/2019");
         mapfoodgiven.put("time", "11:32");
@@ -254,11 +258,18 @@ public class AddPetActivity extends AppCompatActivity {
         mapwatergiven.put("date", "06/11/2019");
         mapwatergiven.put("time", "12:32");
 
+        Map<String, Object> mapsensors = new HashMap<>();
+        mapsensors.put("foodcdistance", "22");
+        mapsensors.put("foodpdistance", "7");
+        mapsensors.put("waterlevel", "200");
+
 
         mDatabase.child(iduser).child("pet").child(idpet).child("name").setValue(nametext);
         mDatabase.child(iduser).child("pet").child(idpet).child("food").setValue(mapfood);
         mDatabase.child(iduser).child("pet").child(idpet).child("foodgiven").setValue(mapfoodgiven);
         mDatabase.child(iduser).child("pet").child(idpet).child("watergiven").setValue(mapwatergiven);
+        mDatabase.child(iduser).child("pet").child(idpet).child("foodwatervalidations").setValue(mapfoodwatervalidations);
+        mDatabase.child(iduser).child("pet").child(idpet).child("sensors").setValue(mapsensors);
 
         Toast.makeText(AddPetActivity.this, R.string.snackbar_pet_added, Toast.LENGTH_LONG).show();
         progressBar.setVisibility(View.GONE);

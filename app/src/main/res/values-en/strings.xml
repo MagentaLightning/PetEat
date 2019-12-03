@@ -89,6 +89,8 @@
     <string name="text_view_remain">Remaining</string>
     <string name="button_update">Update</string>
     <string name="button_delete">Delete</string>
+    <string name="dialog_open_food">Do you want to supply croquettes?</string>
+    <string name="dialog_open_water">Do you want to supply water?</string>
     <!--  -->
 
     <!-- EDIT PET ACTIVITY -->

@@ -273,10 +273,10 @@ public class EditPetActivity extends AppCompatActivity {
 
         DatabaseReference updateData = FirebaseDatabase.getInstance().getReference().child(iduser);
 
-        updateData.child(iduser).child("pet").child(idpet).child("name").setValue(nametext);
-        updateData.child(iduser).child("pet").child(idpet).child("food").setValue(mapfood);
-        updateData.child(iduser).child("pet").child(idpet).child("foodgiven").setValue(mapfoodgiven);
-        updateData.child(iduser).child("pet").child(idpet).child("watergiven").setValue(mapwatergiven);
+        updateData.child("pet").child(idpet).child("name").setValue(nametext);
+        updateData.child("pet").child(idpet).child("food").setValue(mapfood);
+        updateData.child("pet").child(idpet).child("foodgiven").setValue(mapfoodgiven);
+        updateData.child("pet").child(idpet).child("watergiven").setValue(mapwatergiven);
 
         Toast.makeText(EditPetActivity.this, R.string.snackbar_profile_updated, Toast.LENGTH_LONG).show();
         progressBar.setVisibility(View.GONE);
