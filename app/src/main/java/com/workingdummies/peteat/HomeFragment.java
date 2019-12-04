@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,21 +37,23 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class HomeFragment extends Fragment {
 
-    TextView text_view_food_gr, text_view_remain_food_gr, text_view_water_ml, text_view_remain_water,
+    private TextView text_view_food_gr, text_view_remain_food_gr, text_view_water_ml, text_view_remain_water,
             text_view_info, text_view_name, text_view_consumed_food, text_view_remain_food,
             text_view_consumed_water, text_view_remain, text_view_state;
-    ImageButton button_record, button_edit, button_food, button_water;
-    ImageView ic_pet;
+    private ImageButton button_record, button_edit, button_food, button_water;
+    private ImageView ic_pet;
 
     private Context mContext;
 
+    private String TAG = "";
+
     //Declaramos lo necesario para firebase
-    DatabaseReference mDatabase;
+    private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
 
     //Variables públicas
-    public int foodvalidation;
-    public int watervalidation;
+    private int foodvalidation;
+    private int watervalidation;
 
     @Override
     public void onAttach(Context context) {
@@ -147,7 +150,7 @@ public class HomeFragment extends Fragment {
 
     //Métodos
 
-    public void checkFoodValue(){
+    private void checkFoodValue(){
 
         String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
         mDatabase = FirebaseDatabase.getInstance().getReference().child(iduser).child("pet").child("1").child("foodwatervalidations");
@@ -158,7 +161,7 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     try{
-                    String foodvalidationstring = dataSnapshot.child("food").getValue().toString();
+                    String foodvalidationstring = Objects.requireNonNull(dataSnapshot.child("food").getValue()).toString();
                     foodvalidation = Integer.parseInt(foodvalidationstring);
                     }
                     catch(Exception e){
@@ -182,10 +185,11 @@ public class HomeFragment extends Fragment {
 
     }
 
-    public void setFoodValue(){
+    private void setFoodValue(){
 
         if (foodvalidation == 0){
             Context ctx=this.getActivity();
+            assert ctx != null;
             new MaterialAlertDialogBuilder(ctx)
                     .setMessage(R.string.dialog_open_food)
                     .setNegativeButton(getString(R.string.button_cancel), null)
@@ -205,8 +209,8 @@ public class HomeFragment extends Fragment {
 
     }
 
-    public void updateFoodValidation(){
-        String iduser = mAuth.getCurrentUser().getUid();
+    private void updateFoodValidation(){
+        String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
         String idpet = "1";
 
         DatabaseReference updateData = FirebaseDatabase.getInstance().getReference().child(iduser);
@@ -216,7 +220,7 @@ public class HomeFragment extends Fragment {
 
 
 
-    public void checkWaterValue(){
+    private void checkWaterValue(){
 
         String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
         mDatabase = FirebaseDatabase.getInstance().getReference().child(iduser).child("pet").child("1").child("foodwatervalidations");
@@ -227,7 +231,7 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     try{
-                    String watervalidationstring = dataSnapshot.child("water").getValue().toString();
+                    String watervalidationstring = Objects.requireNonNull(dataSnapshot.child("water").getValue()).toString();
                     watervalidation = Integer.parseInt(watervalidationstring);
 
                     }
@@ -249,10 +253,11 @@ public class HomeFragment extends Fragment {
 
     }
 
-    public void setWaterValue(){
+    private void setWaterValue(){
 
         if (watervalidation == 0){
             Context ctx=this.getActivity();
+            assert ctx != null;
             new MaterialAlertDialogBuilder(ctx)
                     .setMessage(R.string.dialog_open_water)
                     .setNegativeButton(getString(R.string.button_cancel), null)
@@ -272,8 +277,8 @@ public class HomeFragment extends Fragment {
 
     }
 
-    public void updateWaterValidation(){
-        String iduser = mAuth.getCurrentUser().getUid();
+    private void updateWaterValidation(){
+        String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
         String idpet = "1";
 
         DatabaseReference updateData = FirebaseDatabase.getInstance().getReference().child(iduser);
@@ -281,14 +286,14 @@ public class HomeFragment extends Fragment {
         updateData.child("pet").child(idpet).child("foodwatervalidations").child("water").setValue(watervalidation);
     }
 
-    public void setTextFoodValue(){
+    private void setTextFoodValue(){
 
         try {
             String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
             mDatabase = FirebaseDatabase.getInstance().getReference().child(iduser).child("pet").child("1").child("foodgiven");
         }
         catch (Exception e){
-
+            Log.w(TAG, "Error: ", e);
         }
 
 
@@ -296,12 +301,12 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     try{
-                    String foodconsumed = dataSnapshot.child("consumed").getValue().toString();
+                    String foodconsumed = Objects.requireNonNull(dataSnapshot.child("consumed").getValue()).toString();
                     foodconsumed = foodconsumed + " gr";
                     text_view_food_gr.setText(foodconsumed);
                     }
                     catch(Exception e){
-
+                        Log.w(TAG, "Error: ", e);
                     }
 
 
@@ -315,14 +320,14 @@ public class HomeFragment extends Fragment {
             });
     }
 
-    public void setTextWaterValue(){
+    private void setTextWaterValue(){
 
         try {
             String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
             mDatabase = FirebaseDatabase.getInstance().getReference().child(iduser).child("pet").child("1").child("watergiven");
         }
         catch (Exception e){
-
+            Log.w(TAG, "Error: ", e);
         }
 
 
@@ -330,12 +335,12 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     try{
-                    String waterconsumed = dataSnapshot.child("consumed").getValue().toString();
+                    String waterconsumed = Objects.requireNonNull(dataSnapshot.child("consumed").getValue()).toString();
                     waterconsumed = waterconsumed + " ml";
                     text_view_water_ml.setText(waterconsumed);
                     }
                     catch(Exception e){
-
+                        Log.w(TAG, "Error: ", e);
                     }
 
 
@@ -349,14 +354,14 @@ public class HomeFragment extends Fragment {
             });
         }
 
-    public void setTextNameValue(){
+    private void setTextNameValue(){
 
         try {
             String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
             mDatabase = FirebaseDatabase.getInstance().getReference().child(iduser).child("pet").child("1");
         }
         catch (Exception e){
-
+            Log.w(TAG, "Error: ", e);
         }
 
 
@@ -364,11 +369,11 @@ public class HomeFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try{
-                    String namestring = dataSnapshot.child("name").getValue().toString();
+                    String namestring = Objects.requireNonNull(dataSnapshot.child("name").getValue()).toString();
                     text_view_name.setText(namestring);
                 }
                 catch(Exception e){
-
+                    Log.w(TAG, "Error: ", e);
                 }
 
 
@@ -383,7 +388,7 @@ public class HomeFragment extends Fragment {
     }
 
 
-    public void setKindValue(){
+    private void setKindValue(){
 
         try {
             String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
@@ -398,7 +403,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try{
-                    int kind = Integer.parseInt(dataSnapshot.child("kind").getValue().toString());
+                    int kind = Integer.parseInt(Objects.requireNonNull(dataSnapshot.child("kind").getValue()).toString());
                     if (kind == 0){
                         ic_pet.setImageResource(R.drawable.ic_catcolor);
                     }else{
@@ -406,7 +411,7 @@ public class HomeFragment extends Fragment {
                     }
                 }
                 catch(Exception e){
-
+                    Log.w(TAG, "Error: ", e);
                 }
 
 
