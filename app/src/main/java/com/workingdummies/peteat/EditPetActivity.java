@@ -271,9 +271,16 @@ public class EditPetActivity extends AppCompatActivity {
         mapwatergiven.put("date", "06/11/2019");
         mapwatergiven.put("time", "12:32");
 
+        //Adquiriendo id de animal seleccionado
+        int radioButtonID = radio_group_kind.getCheckedRadioButtonId();
+        View radioButton = radio_group_kind.findViewById(radioButtonID);
+        int kindid = radio_group_kind.indexOfChild(radioButton);
+        //Adquiriendo id de animal seleccionado
+
         DatabaseReference updateData = FirebaseDatabase.getInstance().getReference().child(iduser);
 
         updateData.child("pet").child(idpet).child("name").setValue(nametext);
+        updateData.child("pet").child(idpet).child("kind").setValue(kindid);
         updateData.child("pet").child(idpet).child("food").setValue(mapfood);
         updateData.child("pet").child(idpet).child("foodgiven").setValue(mapfoodgiven);
         updateData.child("pet").child(idpet).child("watergiven").setValue(mapwatergiven);

@@ -5,11 +5,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +40,7 @@ public class HomeFragment extends Fragment {
             text_view_info, text_view_name, text_view_consumed_food, text_view_remain_food,
             text_view_consumed_water, text_view_remain, text_view_state;
     ImageButton button_record, button_edit, button_food, button_water;
+    ImageView ic_pet;
 
     private Context mContext;
 
@@ -66,6 +69,7 @@ public class HomeFragment extends Fragment {
         button_edit = RootView.findViewById(R.id.ic_edit);
         button_food = RootView.findViewById(R.id.image_food);
         button_water = RootView.findViewById(R.id.image_water);
+        ic_pet = RootView.findViewById(R.id.ic_pet);
 
         text_view_food_gr = RootView.findViewById(R.id.text_view_food_gr);
         text_view_remain_food_gr = RootView.findViewById(R.id.text_view_remain_food_gr);
@@ -108,8 +112,10 @@ public class HomeFragment extends Fragment {
         button_record.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ChartsActivity.class);
-                startActivity(intent);
+                Uri gmmIntentUri = Uri.parse("geo:0,0?q=Veterinarias");
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
             }
         });
 
@@ -134,6 +140,7 @@ public class HomeFragment extends Fragment {
         setTextFoodValue();
         setTextWaterValue();
         setTextNameValue();
+        setKindValue();
 
         return RootView;
     }
@@ -153,9 +160,6 @@ public class HomeFragment extends Fragment {
                     try{
                     String foodvalidationstring = dataSnapshot.child("food").getValue().toString();
                     foodvalidation = Integer.parseInt(foodvalidationstring);
-
-                    String watervalidationstring = dataSnapshot.child("water").getValue().toString();
-                    watervalidation = Integer.parseInt(watervalidationstring);
                     }
                     catch(Exception e){
                         Toast.makeText(getApplicationContext(), R.string.error_food_values, Toast.LENGTH_LONG).show();
@@ -205,13 +209,9 @@ public class HomeFragment extends Fragment {
         String iduser = mAuth.getCurrentUser().getUid();
         String idpet = "1";
 
-        Map<String, Object> mapvalidationfood = new HashMap<>();
-        mapvalidationfood.put("food", foodvalidation);
-        mapvalidationfood.put("water", watervalidation);
-
         DatabaseReference updateData = FirebaseDatabase.getInstance().getReference().child(iduser);
 
-        updateData.child("pet").child(idpet).child("foodwatervalidations").setValue(mapvalidationfood);
+        updateData.child("pet").child(idpet).child("foodwatervalidations").child("food").setValue(foodvalidation);
     }
 
 
@@ -230,8 +230,6 @@ public class HomeFragment extends Fragment {
                     String watervalidationstring = dataSnapshot.child("water").getValue().toString();
                     watervalidation = Integer.parseInt(watervalidationstring);
 
-                    String foodvalidationstring = dataSnapshot.child("food").getValue().toString();
-                    foodvalidation = Integer.parseInt(foodvalidationstring);
                     }
                     catch(Exception e){
                         Toast.makeText(getApplicationContext(), R.string.error_water_values, Toast.LENGTH_LONG).show();
@@ -278,13 +276,9 @@ public class HomeFragment extends Fragment {
         String iduser = mAuth.getCurrentUser().getUid();
         String idpet = "1";
 
-        Map<String, Object> mapvalidationfood = new HashMap<>();
-        mapvalidationfood.put("water", watervalidation );
-        mapvalidationfood.put("food", foodvalidation );
-
         DatabaseReference updateData = FirebaseDatabase.getInstance().getReference().child(iduser);
 
-        updateData.child("pet").child(idpet).child("foodwatervalidations").setValue(mapvalidationfood);
+        updateData.child("pet").child(idpet).child("foodwatervalidations").child("water").setValue(watervalidation);
     }
 
     public void setTextFoodValue(){
@@ -387,4 +381,43 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+
+
+    public void setKindValue(){
+
+        try {
+            String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+            mDatabase = FirebaseDatabase.getInstance().getReference().child(iduser).child("pet").child("1");
+        }
+        catch (Exception e){
+            ic_pet.setImageResource(R.drawable.ic_catcolor);
+        }
+
+
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                try{
+                    int kind = Integer.parseInt(dataSnapshot.child("kind").getValue().toString());
+                    if (kind == 0){
+                        ic_pet.setImageResource(R.drawable.ic_catcolor);
+                    }else{
+                        ic_pet.setImageResource(R.drawable.ic_dogcolor);
+                    }
+                }
+                catch(Exception e){
+
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getApplicationContext(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
 }

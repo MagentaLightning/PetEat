@@ -2,7 +2,9 @@ package com.workingdummies.peteat;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -51,7 +53,7 @@ public class ChartsActivity extends AppCompatActivity {
         button_location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ChartsActivity.this, "Google Maps", Toast.LENGTH_LONG).show();
+                //GOOGLE MAPS CODE PASTE HER J3J3
             }
         });
     }

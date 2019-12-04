@@ -214,9 +214,7 @@ public class AddPetActivity extends AppCompatActivity {
                         .setNegativeButton(getString(R.string.button_cancel), null)
                         .setPositiveButton(getString(R.string.button_accept), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(AddPetActivity.this, R.string.snackbar_pet_added, Toast.LENGTH_LONG).show();
                                 registerpet();
-                                finish();
                             }
                         })
                         .show();
@@ -264,8 +262,14 @@ public class AddPetActivity extends AppCompatActivity {
         mapsensors.put("foodpdistance", 7);
         mapsensors.put("waterlevel", 200);
 
+        //Adquiriendo id de animal seleccionado
+        int radioButtonID = radio_group_kind.getCheckedRadioButtonId();
+        View radioButton = radio_group_kind.findViewById(radioButtonID);
+        int kindid = radio_group_kind.indexOfChild(radioButton);
+        //Adquiriendo id de animal seleccionado
 
         mDatabase.child(iduser).child("pet").child(idpet).child("name").setValue(nametext);
+        mDatabase.child(iduser).child("pet").child(idpet).child("kind").setValue(kindid);
         mDatabase.child(iduser).child("pet").child(idpet).child("food").setValue(mapfood);
         mDatabase.child(iduser).child("pet").child(idpet).child("foodgiven").setValue(mapfoodgiven);
         mDatabase.child(iduser).child("pet").child(idpet).child("watergiven").setValue(mapwatergiven);
