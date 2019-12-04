@@ -25,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class EditPetActivity extends AppCompatActivity {
 
@@ -254,7 +255,7 @@ public class EditPetActivity extends AppCompatActivity {
         final String quantitytext = edit_text_quantity.getText().toString().trim();
         final String dischargetext = edit_text_discharge.getText().toString().trim();
 
-        String iduser = mAuth.getCurrentUser().getUid();
+        String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
 
         String idpet = "1";
 
@@ -262,14 +263,6 @@ public class EditPetActivity extends AppCompatActivity {
         mapfood.put("discharges", dischargetext );
         mapfood.put("quantity", quantitytext);
 
-        Map<String, Object> mapfoodgiven = new HashMap<>();
-        mapfoodgiven.put("date", "06/11/2019");
-        mapfoodgiven.put("time", "11:32");
-        mapfoodgiven.put("consumed", "15");
-
-        Map<String, Object> mapwatergiven = new HashMap<>();
-        mapwatergiven.put("date", "06/11/2019");
-        mapwatergiven.put("time", "12:32");
 
         //Adquiriendo id de animal seleccionado
         int radioButtonID = radio_group_kind.getCheckedRadioButtonId();
@@ -282,8 +275,6 @@ public class EditPetActivity extends AppCompatActivity {
         updateData.child("pet").child(idpet).child("name").setValue(nametext);
         updateData.child("pet").child(idpet).child("kind").setValue(kindid);
         updateData.child("pet").child(idpet).child("food").setValue(mapfood);
-        updateData.child("pet").child(idpet).child("foodgiven").setValue(mapfoodgiven);
-        updateData.child("pet").child(idpet).child("watergiven").setValue(mapwatergiven);
 
         Toast.makeText(EditPetActivity.this, R.string.snackbar_profile_updated, Toast.LENGTH_LONG).show();
         progressBar.setVisibility(View.GONE);
@@ -292,7 +283,7 @@ public class EditPetActivity extends AppCompatActivity {
 
     public void deletepet(){
         progressBar.setVisibility(View.VISIBLE);
-        String iduser = mAuth.getCurrentUser().getUid();
+        String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
 
         mDatabase.child(iduser).child("pet").child("1").removeValue();
 

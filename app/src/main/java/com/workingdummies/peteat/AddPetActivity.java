@@ -25,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class AddPetActivity extends AppCompatActivity {
 
@@ -235,27 +236,13 @@ public class AddPetActivity extends AppCompatActivity {
         final String quantitytext = edit_text_quantity.getText().toString().trim();
         final String dischargetext = edit_text_discharge.getText().toString().trim();
 
-        String iduser = mAuth.getCurrentUser().getUid();
+        String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
 
         String idpet = "1";
 
         Map<String, Object> mapfood = new HashMap<>();
         mapfood.put("discharges", Integer.parseInt(dischargetext) );
         mapfood.put("quantity", Integer.parseInt(quantitytext));
-
-        Map<String, Object> mapfoodwatervalidations = new HashMap<>();
-        mapfoodwatervalidations.put("food", 0 );
-        mapfoodwatervalidations.put("water", 0);
-
-        Map<String, Object> mapfoodgiven = new HashMap<>();
-        mapfoodgiven.put("date", "06/11/2019");
-        mapfoodgiven.put("time", "11:32");
-        mapfoodgiven.put("consumed", 580);
-
-        Map<String, Object> mapwatergiven = new HashMap<>();
-        mapwatergiven.put("date", "06/11/2019");
-        mapwatergiven.put("time", "12:32");
-        mapwatergiven.put("consumed", 340);
 
         Map<String, Object> mapsensors = new HashMap<>();
         mapsensors.put("foodcdistance", 22);
@@ -271,9 +258,6 @@ public class AddPetActivity extends AppCompatActivity {
         mDatabase.child(iduser).child("pet").child(idpet).child("name").setValue(nametext);
         mDatabase.child(iduser).child("pet").child(idpet).child("kind").setValue(kindid);
         mDatabase.child(iduser).child("pet").child(idpet).child("food").setValue(mapfood);
-        mDatabase.child(iduser).child("pet").child(idpet).child("foodgiven").setValue(mapfoodgiven);
-        mDatabase.child(iduser).child("pet").child(idpet).child("watergiven").setValue(mapwatergiven);
-        mDatabase.child(iduser).child("pet").child(idpet).child("foodwatervalidations").setValue(mapfoodwatervalidations);
         mDatabase.child(iduser).child("pet").child(idpet).child("sensors").setValue(mapsensors);
 
         Toast.makeText(AddPetActivity.this, R.string.snackbar_pet_added, Toast.LENGTH_LONG).show();

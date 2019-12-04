@@ -126,8 +126,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                checkFoodValue();
-                setFoodValue();
+                //checkFoodValue();
+                //setFoodValue();
             }
         });
 
@@ -135,8 +135,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                checkWaterValue();
-                setWaterValue();
+                //checkWaterValue();
+                //setWaterValue();
             }
         });
 
@@ -290,7 +290,7 @@ public class HomeFragment extends Fragment {
 
         try {
             String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-            mDatabase = FirebaseDatabase.getInstance().getReference().child(iduser).child("pet").child("1").child("foodgiven");
+            mDatabase = FirebaseDatabase.getInstance().getReference().child(iduser).child("pet").child("1").child("sensors");
         }
         catch (Exception e){
             Log.w(TAG, "Error: ", e);
@@ -301,7 +301,7 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     try{
-                    String foodconsumed = Objects.requireNonNull(dataSnapshot.child("consumed").getValue()).toString();
+                    String foodconsumed = Objects.requireNonNull(dataSnapshot.child("foodpdistance").getValue()).toString();
                     foodconsumed = foodconsumed + " gr";
                     text_view_food_gr.setText(foodconsumed);
                     }
@@ -324,7 +324,7 @@ public class HomeFragment extends Fragment {
 
         try {
             String iduser = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-            mDatabase = FirebaseDatabase.getInstance().getReference().child(iduser).child("pet").child("1").child("watergiven");
+            mDatabase = FirebaseDatabase.getInstance().getReference().child(iduser).child("pet").child("1").child("sensors");
         }
         catch (Exception e){
             Log.w(TAG, "Error: ", e);
@@ -335,7 +335,7 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     try{
-                    String waterconsumed = Objects.requireNonNull(dataSnapshot.child("consumed").getValue()).toString();
+                    String waterconsumed = Objects.requireNonNull(dataSnapshot.child("waterlevel").getValue()).toString();
                     waterconsumed = waterconsumed + " ml";
                     text_view_water_ml.setText(waterconsumed);
                     }
